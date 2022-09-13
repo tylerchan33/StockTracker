@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 const db = require('./models')
 const crypto = require('crypto-js')
 
-console.log('server secret:', process.env.ENC_SECRET)
+console.log('server secret:', process.env.API_KEY)
 
 // config express app/middlewares
 const app = express()
@@ -21,7 +21,7 @@ app.use(async (req, res, next) => {
     // if there is a cookie on the incoming request
     if (req.cookies.userId) {
         // decrypt the user id before we look up the user in the db
-        const decryptedId = crypto.AES.decrypt(req.cookies.userId.toString(), process.env.ENC_SECRET)
+        const decryptedId = crypto.AES.decrypt(req.cookies.userId.toString(), process.env.API_KEY)
         const decryptedIdString = decryptedId.toString(crypto.enc.Utf8)
         // look up the user in the db
         const user = await db.user.findByPk(decryptedIdString)
@@ -49,4 +49,4 @@ app.get('/', (req, res) => {
 app.use('/users', require('./controllers/users'))
 
 // listen on a port
-app.listen(PORT, () => console.log(`you or your loved ones may be entitled to compensation on port: ${PORT}`))
+app.listen(PORT, () => console.log(`hodl on port: ${PORT}`))

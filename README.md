@@ -6,6 +6,14 @@ Tired of having to track your stocks across multiple accounts?  Not satisfied wi
 
 ***
 
+### H3 User Stories
+
+- as a User, I want to be able to see how much money I've gained or lost for each stock
+- as a User, I want a nice, easy to follow UI
+- as a User, I would like to see all of my stocks in one place
+
+***
+
 ### H3 API:
 
 https://finnhub.io/
@@ -53,7 +61,7 @@ Add Stock Page:
 
 ### H3 ERD
 
-![ERD](images/ERD.png)
+![ERD](images/ERDs.png)
 
 ### H3 MVP/Stretch Goals
 
@@ -71,9 +79,4 @@ Add Stock Page:
 - add graph/trends
 - add cryptocurrency tracker
 
-### H3 User Stories
-
-- as a User, I want to be able to see how much money I've gained or lost for each stock
-- as a User, I want a nice, easy to follow UI
-- as a User, I would like to see all of my stocks in one place
 
