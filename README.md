@@ -69,5 +69,11 @@ Add Stock Page:
 - add more information for each stock
 - make the page look really nice
 - add graph/trends
-- 
+- add cryptocurrency tracker
+
+### H3 User Stories
+
+- as a User, I want to be able to see how much money I've gained or lost for each stock
+- as a User, I want a nice, easy to follow UI
+- as a User, I would like to see all of my stocks in one place
 
