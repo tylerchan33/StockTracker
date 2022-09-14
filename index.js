@@ -4,6 +4,7 @@ const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
 const cookieParser = require('cookie-parser')
 const db = require('./models')
+const axios = require('axios')
 const crypto = require('crypto-js')
 
 console.log('server secret:', process.env.ENC_SECRET)
