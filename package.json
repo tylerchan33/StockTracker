@@ -1,23 +1,24 @@
 {
-  "name": "project-2-auth-lesson",
+  "name": "stocktracker",
   "version": "1.0.0",
-  "description": "## Authentication and Authorization",
+  "description": "stock tracking app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WDI-SEA/project-2-auth-lesson.git"
+    "url": "git+https://github.com/tylerchan33/StockTracker.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/WDI-SEA/project-2-auth-lesson/issues"
+    "url": "https://github.com/tylerchan33/StockTracker/issues"
   },
-  "homepage": "https://github.com/WDI-SEA/project-2-auth-lesson#readme",
+  "homepage": "https://github.com/tylerchan33/StockTracker#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "crypto-js": "^4.1.1",
