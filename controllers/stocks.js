@@ -24,4 +24,10 @@ router.get("/search", (req, res) => {
         .catch(console.log)
   })
 
+router.get("/add", (req, res) => {
+    res.render("stocks/add.ejs")
+})
+
+
+
 module.exports = router
