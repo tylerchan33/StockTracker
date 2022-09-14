@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
 router.get("/search", (req, res) => {
     console.log(req.query)
-    const url = `https://api.finage.co.uk/last/trade/stock/${req.query.symbols}?apikey=${process.env.API_KEY}`
+    const url = `https://api.twelvedata.com/quote?symbol=${req.query.symbols}&apikey=${process.env.API_KEY}&source=docs`
     console.log(url)
     axios.get(url)
         .then(response => {
