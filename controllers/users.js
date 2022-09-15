@@ -3,6 +3,7 @@ const router = express.Router()
 const db = require('../models')
 const crypto = require('crypto-js')
 const bcrypt = require('bcrypt')
+const user = require('../models/user')
 
 // GET /users/new -- render a form to create a new user
 router.get('/new', (req, res) => {
@@ -103,8 +104,21 @@ router.get('/profile', async (req, res) => {
             res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
         // otherwise, show them their profile
         } else {
-         
-            const myStocks = await db.stock.findAll()
+         console.log("USERINFOOOO:", res.locals.user)
+         const user = await db.user.findOne({
+            where: {
+                email: res.locals.user.email
+            }
+         })
+            
+            // const myStocks = await db.stock.findAll({
+            //     include:[db.user, db.users_stocks],
+            //     where: {
+            //         userId: res.locals.user.id
+            //     }
+            // })
+            const myStocks = await user.getStocks()
+            console.log(myStocks)
             res.render('users/profile.ejs', {
                 user: res.locals.user,
                 myStocks

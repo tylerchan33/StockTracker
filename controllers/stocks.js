@@ -31,22 +31,21 @@ router.get("/add", (req, res) => {
     res.render("stocks/add.ejs")
 })
 
+
+// adds a new stock to user profile
 router.post("/add", async (req, res) => {
    try{
-    const [user, created] = await db.category.findOrCreate({
-        where: {
-            userId: res.locals.user.id
-        }
-    })
-    console.log("USERINFO", res.locals.user.id)
-    const stock = db.stock.create({
-        userId: res.locals.user.id,
-        stockId: req.params.id,
+    const stock = await db.stock.create({
         stock_symbol: req.body.symbol,
         price_bought: req.body.priceBought,
         shares_bought: req.body.sharesBought
     })
-    await user.createStock(stock)
+    const user = await db.user.findOne({
+        where: {
+            email: res.locals.user.email
+        }
+    })
+    await user.addStock(stock)
     .then((stock) => {
         res.redirect("/users/profile")
     })
@@ -55,9 +54,6 @@ router.post("/add", async (req, res) => {
         console.log(err)
         res.send("server error")
     }
-    
 })
-
-
 
 module.exports = router
