@@ -6,4 +6,6 @@ password: VARCHAR 255 (string)
 sequelize model:create --name user --attributes email:string,password:string
 
 
-sequelize model:create --name stock --attributes price_bought:string,shares_bought:string
+sequelize model:create --name stock --attributes stock_symbol:text,price_bought:float,shares_bought:float
+
+sequelize model:create --name users_stocks --attributes userId:integer,stockId:integer

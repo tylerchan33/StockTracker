@@ -1,1 +1,10 @@
 <h2>Welcome to your profile <%= user.email %>! 🎉</h2>
+<h3>My Stocks:</h3>
+
+<% myStocks.forEach(stocks => { %>
+    <p>Stock: <%= stocks.stock_symbol %></p>
+    <p>Average Price Bought: <%= `$${stocks.price_bought}` %></p>
+    <p># of Shares Bought: <%= stocks.shares_bought %></p>  
+    <p>Market Value: <%= `$${(stocks.shares_bought)*(stocks.price_bought)}` %></p>  
+
+<% }) %>

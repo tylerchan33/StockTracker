@@ -96,15 +96,23 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/profile', (req, res) => {
+router.get('/profile', async (req, res) => {
     // if the user is not logged ... we need to redirect to the login form
-    if (!res.locals.user) {
-        res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
-    // otherwise, show them their profile
-    } else {
-        res.render('users/profile.ejs', {
-            user: res.locals.user
-        })
+    try {
+        if (!res.locals.user) {
+            res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
+        // otherwise, show them their profile
+        } else {
+         
+            const myStocks = await db.stock.findAll()
+            res.render('users/profile.ejs', {
+                user: res.locals.user,
+                myStocks
+            })
+        }
+    } catch(err) {
+        console.log(err)
+        res.send("servor error")
     }
 })
 

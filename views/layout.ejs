@@ -16,11 +16,14 @@
             <!-- if the user is logged in... -->
             <!-- all data in the res.locals is usuable in the layout -->
             <li>
-                <a href="/stocks">Stocks</a>
+                <a href="/stocks">Find a Stock</a>
             </li>
             <% if (user) { %>
                 <li>
                     <a href="/users/profile">Profile</a>
+                </li>
+                <li>
+                    <a href="/stocks/add">Add a Stock</a>
                 </li>
 
                 <li>

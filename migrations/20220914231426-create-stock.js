@@ -8,11 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      stock_symbol: {
+        type: Sequelize.TEXT
+      },
       price_bought: {
-        type: Sequelize.STRING
+        type: Sequelize.FLOAT
       },
       shares_bought: {
-        type: Sequelize.STRING
+        type: Sequelize.FLOAT
       },
       createdAt: {
         allowNull: false,
