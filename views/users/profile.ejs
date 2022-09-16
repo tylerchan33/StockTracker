@@ -1,6 +1,8 @@
 <h2>Welcome to your profile <%= user.email %>! 🎉</h2>
 <h3>My Stocks:</h3>
 
+
+
 <% myStocks.forEach(stocks => { %>
     <h2>Name: <a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol %></a></h2>
     <p>Average Price Bought: <%= `$${stocks.price_bought}` %></p>
@@ -8,3 +10,7 @@
     <p>Market Value: <%= `$${(stocks.shares_bought)*(stocks.price_bought)}` %></p>  
 
 <% }) %>
+<% console.log(stockAPI)%>
+<%= stockAPI.price %>
+
+

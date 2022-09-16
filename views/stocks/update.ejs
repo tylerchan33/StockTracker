@@ -1,1 +1,18 @@
-<h1>hi</h1>
+<h1>Update Stock Information:</h1>
+
+<div id="update">
+    <form method="POST" action="/stocks/<%=stock.id%>/update/?_method=PUT">
+        <label for="symbol">Stock Symbol:</label>
+        <input type="text"  id="symbol" name="symbol" />
+        <br>
+        <br>
+        <label for="sharesBought">Number of Shares:</label>
+        <input type="text"  id="sharesBought" name="sharesBought" />
+        <br>
+        <br>
+        <label for="priceBought">Average Price of Shares Bought:</label>
+        <input type="text"  id="priceBought" name="priceBought" />
+        <input type="submit" value="Update"/>
+    </form>
+
+</div>

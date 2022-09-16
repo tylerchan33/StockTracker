@@ -4,6 +4,7 @@ const db = require('../models')
 const crypto = require('crypto-js')
 const bcrypt = require('bcrypt')
 const user = require('../models/user')
+const { default: axios } = require('axios')
 
 // GET /users/new -- render a form to create a new user
 router.get('/new', (req, res) => {
@@ -111,11 +112,20 @@ router.get('/profile', async (req, res) => {
             }
          })
             const myStocks = await user.getStocks()
-            console.log(myStocks)
-            res.render('users/profile.ejs', {
-                user: res.locals.user,
-                myStocks
-            })
+           
+            
+            
+            const url =  `https://api.twelvedata.com/price?symbol=AAPL&apikey=${process.env.API_KEY}&source=docs`
+            axios.get(url)
+                .then(response => {
+                    res.render('users/profile.ejs', {
+                        user: res.locals.user,
+                        stockAPI: response.data,
+                        myStocks
+                    })
+                
+                })
+           
         }
     } catch(err) {
         console.log(err)
@@ -123,19 +133,6 @@ router.get('/profile', async (req, res) => {
     }
 })
 
-router.put("/profile", async (req, res) => {
-    try {
-        if (!res.locals.user) {
-            res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
-    } else {
-        const updateStock = await db.stock.update({
-            
-        })
-      }
-    } catch(err) {
-        console.log(err)
-        res.send("server erro")
-    }
-})
+
 
 module.exports = router

@@ -78,7 +78,30 @@ router.get("/:id", async (req, res) => {
 
 router.get("/:id/update", async (req, res) => {
     try {
-       res.render("stocks/update.ejs")
+        const oneStock = await db.stock.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+       res.render("stocks/update.ejs", { stock: oneStock })
+    } catch(err) {
+        console.log(err)
+        res.send("server erro")
+    }
+})
+
+router.put("/:id/update", async (req, res) => {
+    try {
+        const updateStock = await db.stock.update({
+            stock_symbol: req.body.symbol,
+            price_bought: req.body.priceBought,
+            shares_bought: req.body.sharesBought
+        }, {
+        where: {
+            id: req.params.id
+        }
+    })
+        res.redirect("/users/profile")
     } catch(err) {
         console.log(err)
         res.send("server erro")
