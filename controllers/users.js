@@ -112,16 +112,30 @@ router.get('/profile', async (req, res) => {
             }
          })
             const myStocks = await user.getStocks()
-           
-            
-            
-            const url =  `https://api.twelvedata.com/price?symbol=AAPL&apikey=${process.env.API_KEY}&source=docs`
+
+            function localStock() {
+                const stockList = []
+                for (let i = 0; i < myStocks.length; i++){
+                    let name = myStocks[i].dataValues.stock_symbol
+                    console.log(name) 
+                    stockList.push(name)
+                }
+                return stockList
+            }
+            localStock()
+            const stocky = localStock()
+          
+            console.log("STOCKY", stocky)
+        
+            const url =  `https://api.twelvedata.com/price?symbol=${stocky}&apikey=${process.env.API_KEY}&source=docs`
             axios.get(url)
                 .then(response => {
+                    
                     res.render('users/profile.ejs', {
                         user: res.locals.user,
                         stockAPI: response.data,
-                        myStocks
+                        myStocks,
+                        stocky
                     })
                 
                 })

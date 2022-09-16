@@ -20,6 +20,7 @@ router.get("/search", async (req, res) => {
     console.log(url)
     axios.get(url)
         .then(response => {
+           
             res.render('stocks/stocks.ejs', { 
                 stocks: response.data
              })

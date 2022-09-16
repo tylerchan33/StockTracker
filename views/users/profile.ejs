@@ -7,10 +7,12 @@
     <h2>Name: <a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol %></a></h2>
     <p>Average Price Bought: <%= `$${stocks.price_bought}` %></p>
     <p># of Shares Bought: <%= stocks.shares_bought %></p>  
-    <p>Market Value: <%= `$${(stocks.shares_bought)*(stocks.price_bought)}` %></p>  
+    <p>Market Value: <%= `$${(stocks.shares_bought)*(stocks.price_bought)}` %></p> 
+    <p>Current Stock Price: <%= stockAPI[stocks.stock_symbol].price %></p>
+  
 
 <% }) %>
-<% console.log(stockAPI)%>
-<%= stockAPI.price %>
+
+
 
 
