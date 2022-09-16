@@ -1,20 +1,12 @@
 <h2>Welcome to your profile <%= user.email %>! 🎉</h2>
-<h3>My Stocks:</h3>
+
+<h3><a href="/users/stocks">My Stocks</a></h3>
+<h3><a href="/users/cryptos">My Cryptos</a></h3>
 
 
 
-<% myStocks.forEach(stocks => { %>
-    <% stockAPI[stocks.stock_symbol].price %>
-    <% const currentPrice = stockAPI[stocks.stock_symbol].price %>
-    <% const roundedPrice = Number(currentPrice).toFixed(2) %>
-    <% console.log("CURRENTPRICE!:", roundedPrice) %>
-    <h2>Name: <a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol %></a></h2>
-    <p>Average Price Bought: <%= `$${stocks.price_bought}` %></p>
-    <p># of Shares Bought: <%= stocks.shares_bought %></p>  
-    <p>Current Stock Price: <%= roundedPrice %></p>
-    <p>Market Value: <%= `$${(roundedPrice)*(stocks.shares_bought)}` %></p>
-    <p>Profit/Loss: <%= `$${((roundedPrice)*(stocks.shares_bought))-((stocks.price_bought)*(stocks.shares_bought))}` %></p>
-<% }) %>
+
+
 
 
 

@@ -51,7 +51,7 @@ router.post("/add", async (req, res) => {
     })
     await user.addStock(stock)
     .then((stock) => {
-        res.redirect("/users/profile")
+        res.redirect("/users/stocks")
     })
    }
     catch(err) {
@@ -102,7 +102,7 @@ router.put("/:id/update", async (req, res) => {
             id: req.params.id
         }
     })
-        res.redirect("/users/profile")
+        res.redirect("/users/stocks")
     } catch(err) {
         console.log(err)
         res.send("server erro")
@@ -116,7 +116,7 @@ router.delete("/:id", async (req, res) => {
                 id: req.params.id 
             }
         })
-        res.redirect("/users/profile")
+        res.redirect("/users/stocks")
     } catch(err) {
         console.log(err)
     }

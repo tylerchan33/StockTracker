@@ -1,0 +1,4 @@
+<h1><%= cryptos.symbol %></h1>
+<% Object.keys(cryptos).forEach(function(key) { %>
+    <li><%= `${key}: ${cryptos[key]}` %></li>
+  <% }); %>

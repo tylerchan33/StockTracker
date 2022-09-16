@@ -1,11 +1,4 @@
-function localStock() {
-    const url =  `https://api.twelvedata.com/price?symbol=AAPL&apikey=${process.env.API_KEY}&source=docs`
-        axios.get(url)
-    for (let i = 0; i < myStocks.length; i++){
-        console.log(myStocks[i].dataValues.stock_symbol)
-        return myStocks[i].dataValues.stock_symbol
-    }
-}
+
 
 
 function shuffleDeck(fullDeck) {

@@ -98,7 +98,19 @@ router.get('/logout', (req, res) => {
     res.redirect('/')
 })
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', (req, res) => {
+    // if the user is not logged ... we need to redirect to the login form
+    if (!res.locals.user) {
+        res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
+    // otherwise, show them their profile
+    } else {
+        res.render('users/profile.ejs', {
+            user: res.locals.user
+        })
+    }
+})
+
+router.get('/stocks', async (req, res) => {
     // if the user is not logged ... we need to redirect to the login form
     try {
         if (!res.locals.user) {
@@ -131,7 +143,7 @@ router.get('/profile', async (req, res) => {
             axios.get(url)
                 .then(response => {
                     
-                    res.render('users/profile.ejs', {
+                    res.render('users/stocks.ejs', {
                         user: res.locals.user,
                         stockAPI: response.data,
                         myStocks,
