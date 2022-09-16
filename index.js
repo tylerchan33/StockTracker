@@ -49,6 +49,7 @@ app.get('/', (req, res) => {
 // Controllers
 app.use("/users", require("./controllers/users"))
 app.use("/stocks", require("./controllers/stocks"))
+app.use("/cryptos", require("./controllers/cryptos"))
 
 // listen on a port
 app.listen(PORT, () => console.log(`hodl on port: ${PORT}`))
