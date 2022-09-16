@@ -1,0 +1,16 @@
+<h2>Name: <%= stock.stock_symbol %></h2>
+<p>Average Price Bought: <%= `$${stock.price_bought}` %></p>
+<p># of Shares Bought: <%= stock.shares_bought %></p>  
+<p>Market Value: <%= `$${(stock.shares_bought)*(stock.price_bought)}` %></p> 
+
+<div id="update">
+    <form method="GET" action="/stocks/<%=stock.id%>/update">
+        <input type="submit" value="Update">
+    </form>
+</div>
+
+<div id="delete">
+    <form method="POST" action="/stocks/<%=stock.id%>/?_method=DELETE">
+        <input type="submit" value="Remove">
+    </form>
+</div>

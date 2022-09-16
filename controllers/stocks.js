@@ -5,6 +5,9 @@ const crypto = require('crypto-js')
 const bcrypt = require('bcrypt')
 const axios = require('axios')
 const user = require('../models/user')
+const methodOverride = require("method-override")
+
+router.use(methodOverride("_method"))
 
 router.get("/", (req, res) => {
     res.render("stocks/search.ejs")
@@ -55,5 +58,45 @@ router.post("/add", async (req, res) => {
         res.send("server error")
     }
 })
+
+router.get("/:id", async (req, res) => {
+    console.log(req.params.id)
+    try {
+        const oneStock = await db.stock.findOne({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.render("stocks/one.ejs", { stock: oneStock })
+
+    } catch(err) {
+        console.log(err)
+        res.send("server error")
+    }
+
+})
+
+router.get("/:id/update", async (req, res) => {
+    try {
+       res.render("stocks/update.ejs")
+    } catch(err) {
+        console.log(err)
+        res.send("server erro")
+    }
+})
+
+router.delete("/:id", async (req, res) => {
+    try {
+        const deleteStock = await db.stock.destroy({
+            where: {
+                id: req.params.id 
+            }
+        })
+        res.redirect("/users/profile")
+    } catch(err) {
+        console.log(err)
+    }
+})
+
 
 module.exports = router

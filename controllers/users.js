@@ -110,13 +110,6 @@ router.get('/profile', async (req, res) => {
                 email: res.locals.user.email
             }
          })
-            
-            // const myStocks = await db.stock.findAll({
-            //     include:[db.user, db.users_stocks],
-            //     where: {
-            //         userId: res.locals.user.id
-            //     }
-            // })
             const myStocks = await user.getStocks()
             console.log(myStocks)
             res.render('users/profile.ejs', {
@@ -127,6 +120,21 @@ router.get('/profile', async (req, res) => {
     } catch(err) {
         console.log(err)
         res.send("servor error")
+    }
+})
+
+router.put("/profile", async (req, res) => {
+    try {
+        if (!res.locals.user) {
+            res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
+    } else {
+        const updateStock = await db.stock.update({
+            
+        })
+      }
+    } catch(err) {
+        console.log(err)
+        res.send("server erro")
     }
 })
 
