@@ -4,7 +4,11 @@
 
 <form method="GET" action="/cryptos/search">
   <label for="search"></label>
-  <input type="text"  id="search" name="symbols" />
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Symbols:</span>
+    <input type="text" class="col-6" id="search" name ="symbols" placeholder="e.g. BTC/EUR" aria-label="symbols" aria-describedby="basic-addon1">
+  </div>
 
   <input type="submit" />
 </form>
+

@@ -30,7 +30,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol %></th>
+                <th scope="row"><a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol.toUpperCase() %></th>
                 <td><%= `$${cryptos.crypto_price_bought}` %></td>
                 <td><%= cryptos.crypto_amount_bought  %></td>
                 <td><%= `$${roundedPrice}` %></td>
@@ -69,7 +69,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol %></th>
+                <th scope="row"><a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol.toUpperCase()  %></th>
                 <td><%= `$${cryptos.crypto_price_bought}` %></td>
                 <td><%= cryptos.crypto_amount_bought  %></td>
                 <td><%= `$${roundedPrice}` %></td>

@@ -1,10 +1,20 @@
-<h1>Stock Search</h1>
-<p>Search for a stock below...</p>
-<p>Please enter the stock symbol associated with the stock, e.g. AAPL for Apple.</p>
+
+<h1 style="text-align: center;">Stock Search</h1>
+<p style="text-align: center;">Search for a stock below...</p>
+<p style="text-align: center;">Please enter the stock symbol associated with the stock, e.g. AAPL for Apple.</p>
+
+<div style="display: flex;
+justify-content: center;
+align-items: center;">
+<div>
 
 <form method="GET" action="/stocks/search">
   <label for="search"></label>
-  <input type="text"  id="search" name="symbols" />
+  <div class="input-group mb-3 ">
+    <span class="input-group-text" id="basic-addon1">Symbols:</span>
+    <input type="text" class="col-6 form-inline" id="search" name ="symbols" placeholder="e.g. TSLA" aria-label="symbols" aria-describedby="basic-addon1">
+  </div>
+  
 
-  <input type="submit" />
+  <input type="submit"/>
 </form>

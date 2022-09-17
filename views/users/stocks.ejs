@@ -26,7 +26,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol %></th>
+                <th scope="row"><a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol.toUpperCase() %></th>
                 <td><%= `$${stocks.price_bought}` %></td>
                 <td><%= stocks.shares_bought %></td>
                 <td><%= `$${roundedPrice}` %></td>
@@ -61,7 +61,7 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row"><a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol %></th>
+                <th scope="row"><a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol.toUpperCase() %></th>
                 <td><%= `$${stocks.price_bought}` %></td>
                 <td><%= stocks.shares_bought %></td>
                 <td><%= `$${roundedPrice}` %></td>
