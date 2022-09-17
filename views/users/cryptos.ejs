@@ -1,4 +1,4 @@
-<h3>My Crypto:</h3>
+<h3 id="myCrypto">My Crypto</h3>
 <% console.log("MYCRYPTS", myCryptos) %>
 <% console.log("CRYPTYEKJL", crypty) %>
 
@@ -16,12 +16,31 @@
         <% const roundedMarketValue = Number(marketValue).toFixed(2) %>
         <% const gains = ((roundedPrice)*(cryptos.crypto_amount_bought))-((cryptos.crypto_price_bought)*(cryptos.crypto_amount_bought)) %>
         <% const roundedGains = Number(gains).toFixed(2) %>
-        <h2>Name: <a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol %></a></h2>
-        <p>Average Price Bought: <%= `$${cryptos.crypto_price_bought}` %></p>
-        <p>Amount of Crypto Bought: <%= cryptos.crypto_amount_bought %></p>  
-        <p>Current Crypto Price: <%= roundedPrice %></p>
-        <p>Market Value: <%= `$${roundedMarketValue}` %></p>
-        <p>Profit/Loss: <%= `$${roundedGains}` %></p>
+   
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Average Price Bought</th>
+                <th scope="col">Amount of Crypto Bought</th>
+                <th scope="col">Current Crypto Price</th>
+                <th scope="col">Market Value</th>
+                <th scope="col">Profit/Loss</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol %></th>
+                <td><%= `$${cryptos.crypto_price_bought}` %></td>
+                <td><%= cryptos.crypto_amount_bought  %></td>
+                <td><%= `$${roundedPrice}` %></td>
+                <td><%= `$${roundedMarketValue}` %></td>
+                <td><%= `$${roundedGains}` %></td>
+                
+
+              </tr>
+            </tbody>
+          </table>
         
 <% }) %>
 <%} else { %>
@@ -35,12 +54,33 @@
         <% const roundedMarketValue = Number(marketValue).toFixed(2) %>
         <% const gains = ((roundedPrice)*(cryptos.crypto_amount_bought))-((cryptos.crypto_price_bought)*(cryptos.crypto_amount_bought)) %>
         <% const roundedGains = Number(gains).toFixed(2) %>
-        <h2>Name: <a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol %></a></h2>
-        <p>Average Price Bought: <%= `$${cryptos.crypto_price_bought}` %></p>
-        <p>Amount of Crypto Bought: <%= cryptos.crypto_amount_bought %></p>  
-        <p>Current Crypto Price: <%= roundedPrice %></p>
-        <p>Market Value: <%= `$${roundedMarketValue}` %></p>
-        <p>Profit/Loss: <%= `$${roundedGains}` %></p>
+    
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Average Price Bought</th>
+                <th scope="col">Amount of Crypto Bought</th>
+                <th scope="col">Current Crypto Price</th>
+                <th scope="col">Market Value</th>
+                <th scope="col">Profit/Loss</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"><a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol %></th>
+                <td><%= `$${cryptos.crypto_price_bought}` %></td>
+                <td><%= cryptos.crypto_amount_bought  %></td>
+                <td><%= `$${roundedPrice}` %></td>
+                <td><%= `$${roundedMarketValue}` %></td>
+                <td><%= `$${roundedGains}` %></td>
+                
+
+              </tr>
+            </tbody>
+          </table>
+
 
 
 
