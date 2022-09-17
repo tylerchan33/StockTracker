@@ -1,0 +1,18 @@
+<h1>Update Crypto Information:</h1>
+
+<div id="update">
+    <form method="POST" action="/cryptos/<%=crypto.id%>/update/?_method=PUT">
+        <label for="cryptoSymbol">Cryptocurrency Symbol:</label>
+        <input type="text"  id="cryptoSymbol" name="cryptoSymbol" />
+        <br>
+        <br>
+        <label for="cryptoBought">Amount of Crypto Bought:</label>
+        <input type="text"  id="cryptoBought" name="cryptoBought" />
+        <br>
+        <br>
+        <label for="cryptoPriceBought">Average Price of Crypto Bought:</label>
+        <input type="text"  id="cryptoPriceBought" name="cryptoPriceBought" />
+        <input type="submit" value="Update"/>
+    </form>
+
+</div>

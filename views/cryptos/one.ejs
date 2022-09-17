@@ -1,0 +1,16 @@
+<h2>Name: <%= crypto.crypto_symbol %></h2>
+<p>Average Price Bought: <%= `$${crypto.crypto_price_bought}` %></p>
+<p># of Shares Bought: <%= crypto.crypto_amount_bought %></p>  
+<p>Market Value: <%= `$${(crypto.crypto_amount_bought)*(crypto.crypto_price_bought)}` %></p> 
+
+<div id="update">
+    <form method="GET" action="/cryptos/<%=crypto.id%>/update">
+        <input type="submit" value="Update">
+    </form>
+</div>
+
+<div id="delete">
+    <form method="POST" action="/cryptos/<%=crypto.id%>/?_method=DELETE">
+        <input type="submit" value="Remove">
+    </form>
+</div>
