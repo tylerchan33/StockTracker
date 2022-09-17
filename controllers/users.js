@@ -159,6 +159,55 @@ router.get('/stocks', async (req, res) => {
     }
 })
 
+router.get('/cryptos', async (req, res) => {
+    // if the user is not logged ... we need to redirect to the login form
+    try {
+        if (!res.locals.user) {
+            res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
+        // otherwise, show them their profile
+        } else {
+         console.log("USERINFOOOO:", res.locals.user)
+         const user = await db.user.findOne({
+            where: {
+                email: res.locals.user.email
+            }
+         })
+            const myCryptos = await user.getCryptos()
+
+            function localCrypto() {
+                const cryptoList = []
+                for (let i = 0; i < myCryptos.length; i++){
+                    let cryptoName = myCryptos[i].dataValues.crypto_symbol
+                    console.log(cryptoName) 
+                    cryptoList.push(cryptoName)
+                }
+                return cryptoList
+            }
+            localCrypto()
+            const crypty = localCrypto()
+          
+            console.log("CRYPTY", crypty)
+        
+            const url =  `https://api.twelvedata.com/price?symbol=${crypty}&apikey=${process.env.API_KEY}&source=docs`
+            axios.get(url)
+                .then(response => {
+                    
+                    res.render('users/cryptos.ejs', {
+                        user: res.locals.user,
+                        cryptoAPI: response.data,
+                        myCryptos,
+                        crypty
+                    })
+                
+                })
+           
+        }
+    } catch(err) {
+        console.log(err)
+        res.send("servor error")
+    }
+})
+
 
 
 module.exports = router

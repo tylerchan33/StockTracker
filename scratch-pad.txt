@@ -11,3 +11,5 @@ sequelize model:create --name stock --attributes stock_symbol:text,price_bought:
 sequelize model:create --name users_stocks --attributes userId:integer,stockId:integer
 
 sequelize model:create --name crypto --attributes crypto_symbol:text,crypto_price_bought:float,crypto_amount_bought:float
+
+sequelize model:create --name users_cryptos --attributes userId:integer,cryptoId:integer
