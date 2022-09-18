@@ -1,6 +1,19 @@
-
-
-<h1><%= stocks.symbol %></h1>
+<h1 style="text-align: center;"><%= stocks.symbol %></h1>
 <% Object.keys(stocks).forEach(function(key) { %>
-    <li><%= `${key}: ${stocks[key]}` %></li>
+  <% if (typeof stocks[key] === "string") {%>
+        
+      <div class="row justify-content-center">
+          <div class="col-2">
+              <% let words =key.replaceAll('_', ' ') %>
+              <p class="text-primary"><%=`${words[0].toUpperCase() + words.substring(1)}:`%></p>
+          </div>
+          <div class="col-2">
+              <%= `${stocks[key]}` %>
+          </div>
+      </div>
+
+      <%}%>
   <% }); %>
+
+
+  

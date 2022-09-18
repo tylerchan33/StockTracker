@@ -1,18 +1,35 @@
-<h1>Cryptocurrency Adder</h1>
-<p>Add cryptocurrency to your profile:</p>
+<h1 style="text-align: center;">Cryptocurrency Adder</h1>
+<p style="text-align: center;">Add cryptocurrency to your profile:</p>
 
-<form method="POST" action="/cryptos/add">
-  <label for="cryptoSymbol">Crypto Symbol:</label>
-  <input type="text"  id="cryptoSymbol" name="cryptoSymbol" />
-  <br>
-  <br>
-  <label for="cryptoBought">Amount of Crypto:</label>
-  <input type="text"  id="cryptoBought" name="cryptoBought" />
-  <br>
-  <br>
-  <label for="cryptoPriceBought">Average Price of Crypto Bought:</label>
-  <input type="text"  id="cryptoPriceBought" name="cryptoPriceBought" />
-  <input type="submit" />
-</form>
+
+
+<div style="display: flex;
+justify-content: center;">
+    <form method="POST" action="/cryptos/add">
+      <label for="cryptoSymbol"></label>
+      <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Crypto Symbol:</span>
+          <input type="text" class="col-5" id="cryptoSymbol" name ="cryptoSymbol" placeholder="e.g. BTC/EUR" aria-label="cryptoSymbol" aria-describedby="basic-addon1">
+      </div>
+      <label for="cryptoBought"></label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Amount of Crypto:</span>
+        <input type="text" class="col-5" id="cryptoBought" name ="cryptoBought" placeholder="Enter number" aria-label="cryptoBought" aria-describedby="basic-addon1">
+      </div>
+      <label for="cryptoPriceBought"></label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Average Price of Crypto Bought:</span>
+        <input type="text" class="col-5" id="cryptoPriceBought" name ="cryptoPriceBought" placeholder="Enter price ($)" aria-label="cryptoPriceBought" aria-describedby="basic-addon1">
+      </div>
+      
+      <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+            <button type="submit" class="btn btn-primary">Add</button>
+          
+      </div>
+   
+
+    </form>
+</div>
+
 
 

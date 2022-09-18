@@ -1,16 +1,20 @@
-<h2>Name: <%= crypto.crypto_symbol %></h2>
-<p>Average Price Bought: <%= `$${crypto.crypto_price_bought}` %></p>
-<p># of Shares Bought: <%= crypto.crypto_amount_bought %></p>  
-<p>Market Value: <%= `$${(crypto.crypto_amount_bought)*(crypto.crypto_price_bought)}` %></p> 
-
-<div id="update">
-    <form method="GET" action="/cryptos/<%=crypto.id%>/update">
-        <input type="submit" value="Update">
-    </form>
+<div class="container text-center">
+    <div class="col align self-center">
+        <h2>Name: <%= crypto.crypto_symbol.toUpperCase()  %></h2>
+        <p>Average Price Bought: <%= `$${crypto.crypto_price_bought}` %></p>
+        <p># of Shares Bought: <%= crypto.crypto_amount_bought %></p>  
+    </div>
 </div>
 
-<div id="delete">
-    <form method="POST" action="/cryptos/<%=crypto.id%>/?_method=DELETE">
-        <input type="submit" value="Remove">
+
+<div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+    <form method="GET" action="/cryptos/<%=crypto.id%>/update">
+        <button type="submit" class="btn btn-primary">Update</button>
     </form>
+</div>
+<p></p>
+<div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+        <form method="POST" action="/cryptos/<%=crypto.id%>/?_method=DELETE">
+            <button type="submit" class="btn btn-primary">Remove</button>
+        </form>
 </div>

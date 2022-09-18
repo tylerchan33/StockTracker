@@ -4,17 +4,14 @@
 <p style="text-align: center;">Please enter the stock symbol associated with the stock, e.g. AAPL for Apple.</p>
 
 <div style="display: flex;
-justify-content: center;
-align-items: center;">
-<div>
-
-<form method="GET" action="/stocks/search">
-  <label for="search"></label>
-  <div class="input-group mb-3 ">
-    <span class="input-group-text" id="basic-addon1">Symbols:</span>
-    <input type="text" class="col-6 form-inline" id="search" name ="symbols" placeholder="e.g. TSLA" aria-label="symbols" aria-describedby="basic-addon1">
-  </div>
+justify-content: center;">
+  <form method="GET" action="/stocks/search">
+    <label for="search"></label>
+    <div class="input-group mb-3 ">
+      <span class="input-group-text" id="basic-addon1">Symbols:</span>
+      <input type="text" class="col-6 form-inline" id="search" name ="symbols" placeholder="e.g. TSLA" aria-label="symbols" aria-describedby="basic-addon1">
+      <input type="submit" value="Search"/>
+    </div>
   
-
-  <input type="submit"/>
-</form>
+  </form>
+</div>

@@ -1,14 +1,17 @@
-<h1>Cryptocurrency Search</h1>
-<p>Search for a cryptocurrency below...</p>
-<p>Please enter associated symbols for the crypto you are looking for, e.g. BTC/USD for Bitcoin.</p>
+<h1 class="text-align: center;">Cryptocurrency Search</h1>
+<p style="text-align: center;">Search for a cryptocurrency below...</p>
+<p style="text-align: center;">Please enter associated symbols for the crypto you are looking for, e.g. BTC/USD for Bitcoin.</p>
 
-<form method="GET" action="/cryptos/search">
-  <label for="search"></label>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Symbols:</span>
-    <input type="text" class="col-6" id="search" name ="symbols" placeholder="e.g. BTC/EUR" aria-label="symbols" aria-describedby="basic-addon1">
-  </div>
 
-  <input type="submit" />
-</form>
+<div style="display: flex;
+justify-content: center;">
+    <form method="GET" action="/cryptos/search">
+    <label for="search"></label>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Symbols:</span>
+        <input type="text" class="col-6" id="search" name ="symbols" placeholder="e.g. BTC/EUR" aria-label="symbols" aria-describedby="basic-addon1">
+        <input type="submit" value="Search"/>
+    </div>
+    </form>
+</div>
 

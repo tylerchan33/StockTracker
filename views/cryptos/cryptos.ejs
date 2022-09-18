@@ -1,4 +1,15 @@
-<h1><%= cryptos.symbol %></h1>
+<h1 style="text-align: center;"><%= cryptos.symbol %></h1>
 <% Object.keys(cryptos).forEach(function(key) { %>
-    <li><%= `${key}: ${cryptos[key]}` %></li>
-  <% }); %>
+    <% if (typeof cryptos[key] === "string") {%>
+       <div class="row justify-content-center">
+            <div class="col-2">
+                <% let words =key.replaceAll('_', ' ') %>
+                <p class="text-primary"><%=`${words[0].toUpperCase() + words.substring(1)}:`%></p>
+            </div>
+        <div class="col-2">
+            <%= `${cryptos[key]}` %>
+        </div>
+      </div>
+  
+   <%}%>
+<% }); %>

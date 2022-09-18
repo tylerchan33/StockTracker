@@ -1,21 +1,28 @@
 <h3 id="myStocks">My Stocks</h3>
 
+
 <% if (stocky.length === 0) { %>
     <h2> You have no stocks!</h2>
 <% } %>
 <% if (stocky.length === 1) { %>
     <% myStocks.forEach(stocks => { %>
         <% stockAPI.price %>
-        <% const currentPrice = stockAPI.price %>
-        <% const roundedPrice = Number(currentPrice).toFixed(2) %>
+        <% const currentPrice = stockAPI.price.toLocaleString() %>
+        <% const roundedPrice = parseFloat(currentPrice) %>
+        <% const roundedPriceComma = roundedPrice.toLocaleString() %>
         <% const marketValue = (roundedPrice)*(stocks.shares_bought) %>
-        <% const roundedMarketValue = Number(marketValue).toFixed(2) %>
+        <% const roundedMarketValue = parseFloat(marketValue) %>
+        <% const roundedMarketValueComma = roundedMarketValue.toLocaleString() %>
         <% const gains = ((roundedPrice)*(stocks.shares_bought))-((stocks.price_bought)*(stocks.shares_bought)) %>
-        <% const roundedGains = Number(gains).toFixed(2) %>
+        <% const roundedGains = parseFloat(gains) %>
+        <% const roundedGainsComma = roundedGains.toLocaleString() %>
+        <% const commaPrice = stocks.price_bought.toLocaleString() %>
+        <% const commaShares = stocks.shares_bought.toLocaleString() %>
         <% console.log("CURRENTPRICE!:", roundedPrice) %>
+
         <table class="table">
             <thead>
-              <tr>
+              <tr> 
                 <th scope="col">Name</th>
                 <th scope="col">Average Price Bought</th>
                 <th scope="col"># of Shares Bought</th>
@@ -27,11 +34,11 @@
             <tbody>
               <tr>
                 <th scope="row"><a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol.toUpperCase() %></th>
-                <td><%= `$${stocks.price_bought}` %></td>
-                <td><%= stocks.shares_bought %></td>
-                <td><%= `$${roundedPrice}` %></td>
-                <td><%= `$${roundedMarketValue}` %></td>
-                <td><%= `$${roundedGains}` %></td>
+                <td><%= `$${commaPrice}` %></td>
+                <td><%= commaShares %></td>
+                <td><%= `$${roundedPriceComma}` %></td>
+                <td><%= `$${roundedMarketValueComma}` %></td>
+                <td><%= `$${roundedGainsComma}` %></td>
                 
 
               </tr>
@@ -42,11 +49,17 @@
         <% myStocks.forEach(stocks => { %>
         <% stockAPI[stocks.stock_symbol].price %>
         <% const currentPrice = stockAPI[stocks.stock_symbol].price %>
-        <% const roundedPrice = Number(currentPrice).toFixed(2) %>
+        <% const roundedPrice = parseFloat(currentPrice) %>
+        <% const roundedPriceComma = roundedPrice.toLocaleString() %>
+        <% console.log("PRICEPRICEPRICE", typeof roundedPrice) %>
         <% const marketValue = (roundedPrice)*(stocks.shares_bought) %>
-        <% const roundedMarketValue = Number(marketValue).toFixed(2) %>
+        <% const roundedMarketValue = parseFloat(marketValue) %>
+        <% const roundedMarketValueComma = roundedMarketValue.toLocaleString() %>
         <% const gains = ((roundedPrice)*(stocks.shares_bought))-((stocks.price_bought)*(stocks.shares_bought)) %>
-        <% const roundedGains = Number(gains).toFixed(2) %>
+        <% const roundedGains = parseFloat(gains) %>
+        <% const roundedGainsComma = roundedGains.toLocaleString() %>
+        <% const commaPrice = stocks.price_bought.toLocaleString() %>
+        <% const commaShares = stocks.shares_bought.toLocaleString() %>
        
          <table class="table">
             <thead>
@@ -62,11 +75,11 @@
             <tbody>
               <tr>
                 <th scope="row"><a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol.toUpperCase() %></th>
-                <td><%= `$${stocks.price_bought}` %></td>
-                <td><%= stocks.shares_bought %></td>
-                <td><%= `$${roundedPrice}` %></td>
-                <td><%= `$${roundedMarketValue}` %></td>
-                <td><%= `$${roundedGains}` %></td>
+                <td><%= `$${commaPrice}` %></td>
+                <td><%= commaShares %></td>
+                <td><%= `$${roundedPriceComma}` %></td>
+                <td><%= `$${roundedMarketValueComma}` %></td>
+                <td><%= `$${roundedGainsComma}` %></td>
                 
 
               </tr>

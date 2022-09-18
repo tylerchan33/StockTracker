@@ -1,16 +1,18 @@
-<h2>Name: <%= stock.stock_symbol %></h2>
-<p>Average Price Bought: <%= `$${stock.price_bought}` %></p>
-<p># of Shares Bought: <%= stock.shares_bought %></p>  
-<p>Market Value: <%= `$${(stock.shares_bought)*(stock.price_bought)}` %></p> 
+<h2 style="text-align: center;">Name: <%= stock.stock_symbol.toUpperCase() %></h2>
+<p style="text-align: center;">Average Price Bought: <%= `$${stock.price_bought}` %></p>
+<p style="text-align: center;"># of Shares Bought: <%= stock.shares_bought %></p>  
 
-<div id="update">
+
+
+
+<div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
     <form method="GET" action="/stocks/<%=stock.id%>/update">
-        <input type="submit" value="Update">
+        <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>
-
-<div id="delete">
-    <form method="POST" action="/stocks/<%=stock.id%>/?_method=DELETE">
-        <input type="submit" value="Remove">
-    </form>
+<p></p>
+<div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+        <form method="POST" action="/stocks/<%=stock.id%>/?_method=DELETE">
+            <button type="submit" class="btn btn-primary">Remove</button>
+        </form>
 </div>

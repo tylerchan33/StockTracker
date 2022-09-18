@@ -1,16 +1,35 @@
-<h1>Stock Adder</h1>
-<p>Add stocks to your profile:</p>
+<h1 style="text-align: center;">Stock Adder</h1>
+<p style="text-align: center;">Add stocks to your profile:</p>
 
-<form method="POST" action="/stocks/add">
-  <label for="symbol">Stock Symbol:</label>
-  <input type="text"  id="symbol" name="symbol" />
-  <br>
-  <br>
-  <label for="sharesBought">Number of Shares:</label>
-  <input type="text"  id="sharesBought" name="sharesBought" />
-  <br>
-  <br>
-  <label for="priceBought">Average Price of Shares Bought:</label>
-  <input type="text"  id="priceBought" name="priceBought" />
-  <input type="submit" />
-</form>
+
+
+<div style="display: flex;
+justify-content: center;">
+    <form method="POST" action="/stocks/add">
+      <label for="symbol"></label>
+      <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1">Stock Symbol:</span>
+          <input type="text" class="col-5" id="symbol" name ="symbol" placeholder="e.g. TSLA" aria-label="symbol" aria-describedby="basic-addon1">
+         
+      </div>
+      <label for="sharesBought"></label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Number of Shares:</span>
+        <input type="text" class="col-5" id="sharesBought" name ="sharesBought" placeholder="Enter a number." aria-label="sharesBought" aria-describedby="basic-addon1">
+      </div>
+      <label for="priceBought"></label>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Average Price of Shares Bought:</span>
+        <input type="text" class="col-5" id="priceBought" name ="priceBought" placeholder="Enter price ($)." aria-label="priceBought" aria-describedby="basic-addon1">
+      </div>
+      <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+        <button type="submit" class="btn btn-primary">Add</button>
+      
+      </div>
+
+
+   
+
+    </form>
+</div>
+
