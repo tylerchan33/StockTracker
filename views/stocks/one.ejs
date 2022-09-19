@@ -1,6 +1,8 @@
 <h2 style="text-align: center;">Name: <%= stock.stock_symbol.toUpperCase() %></h2>
-<p style="text-align: center;">Average Price Bought: <%= `$${stock.price_bought}` %></p>
-<p style="text-align: center;"># of Shares Bought: <%= stock.shares_bought %></p>  
+<% const commaPrice = stock.price_bought.toLocaleString() %>
+<p style="text-align: center;">Average Price Bought: <%= `$${commaPrice}` %></p>
+<% const commaShares = stock.shares_bought.toLocaleString() %>
+<p style="text-align: center;"># of Shares Bought: <%= commaShares %></p>  
 
 
 

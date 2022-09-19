@@ -1,9 +1,29 @@
-<form action="/users" method="POST">
-    <label for="email">Email:</label>
-    <input id="email" type="email" name="email" required>
+<h1 style="text-align: center;">Sign Up for StockTracker Account! 📈</h1>
 
-    <label for="password">Password:</label>
-    <input id="password" type="password" name="password" required>
 
-    <button type="submit">Sign Up</button>
-</form>
+
+<div style="display: flex;
+justify-content:center;">
+    <form method="POST" action="/users">
+        <label for="search"></label>
+        <div class="input-group mb-3 form-inline">
+            <span class="input-group-text" id="basic-addon1">Email:</span>
+            <input id="email" type="email" name="email" required>
+        </div>
+        <label for="password"></label>
+        <div class="input-group mb-3 form-inline">
+            <span class="input-group-text" id="basic-addon1">Password:</span>
+            <input id="password" type="password" name="password" required>
+        </div>
+        <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+            <button type="submit" class="btn btn-primary">Sign Up!</button>
+          
+      </div>
+
+        
+
+    </form>
+</div>
+
+
+

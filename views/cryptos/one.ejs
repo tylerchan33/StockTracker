@@ -1,8 +1,10 @@
 <div class="container text-center">
     <div class="col align self-center">
         <h2>Name: <%= crypto.crypto_symbol.toUpperCase()  %></h2>
-        <p>Average Price Bought: <%= `$${crypto.crypto_price_bought}` %></p>
-        <p># of Shares Bought: <%= crypto.crypto_amount_bought %></p>  
+        <% const commaPrice = crypto.crypto_price_bought.toLocaleString() %>
+        <p>Average Price Bought: <%= `$${commaPrice}` %></p>
+        <% const commaShares = crypto.crypto_amount_bought.toLocaleString() %>
+        <p>Amount Bought: <%= commaShares%></p>  
     </div>
 </div>
 
