@@ -110,9 +110,20 @@ router.put("/:id/update", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     try {
+        const user = await db.user.findOne({
+            where: {email: res.locals.user.email}
+        })
+        
         const deleteStock = await db.stock.destroy({
             where: {
                 id: req.params.id 
+            }
+        })
+
+        const deleteUserStock = await db.users_stocks.destroy({
+            where: {
+                userId: user.id,
+                stockId: req.params.id
             }
         })
         res.redirect("/users/stocks")

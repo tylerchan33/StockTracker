@@ -5,6 +5,9 @@ const crypto = require('crypto-js')
 const bcrypt = require('bcrypt')
 const user = require('../models/user')
 const { default: axios } = require('axios')
+const methodOverride = require("method-override")
+
+router.use(methodOverride("_method"))
 
 // GET /users/new -- render a form to create a new user
 router.get('/new', (req, res) => {
@@ -206,6 +209,67 @@ router.get('/cryptos', async (req, res) => {
         console.log(err)
         res.send("servor error")
     }
+})
+
+
+router.delete("/profile", async (req, res) => {
+    try {
+        if(!res.locals.user) {
+            res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
+        } else {
+            await db.user.destroy({
+                where: {
+                email: res.locals.user.email
+                }
+            })
+        res.redirect("/")
+        }
+    } catch(err) {
+        console.log(err)
+    }
+})
+
+router.get("/profile/edit", async (req, res) => {
+    try {
+        if(!res.locals.user) {
+            res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
+
+        } else {
+            res.render("users/edit")
+            }
+        }
+        catch(err) {
+        console.log(err)
+        }
+    
+})
+
+router.put("/profile/edit", async (req, res) => {
+    try {
+        const user = await db.user.findOne({
+            where: {
+                email: res.locals.user.email
+            }
+        })
+        if(!res.locals.user) {
+            res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
+
+        } else {
+            res.redirect("/users/profile")
+            }
+            const editUser = await db.user.update({
+                email: req.body.email,
+
+            },{
+                where: {
+                    id: res.locals.user.id
+                }
+            })
+        
+
+        }   catch(err) {
+        console.log(err)
+        } 
 })
 
 
