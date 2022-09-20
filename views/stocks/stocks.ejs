@@ -1,20 +1,48 @@
 <h1 style="text-align: center;"><%= stocks.symbol %></h1>
 <% console.log("ERRO STOCKS", stocks) %>
-<% Object.keys(stocks).forEach(function(key) { %>
-  <% if (typeof stocks[key] === "string") {%>
-        
-      <div class="row justify-content-center">
-          <div class="col-2">
-              <% let words =key.replaceAll('_', ' ') %>
-              <p class="text-primary"><%=`${words[0].toUpperCase() + words.substring(1)}:`%></p>
-          </div>
-          <div class="col-2">
-              <%= `${stocks[key]}` %>
-          </div>
-      </div>
+<br>
 
-      <%}%>
-  <% }); %>
+
+  <div class="row justify-content-center">
+    <div class="col-2">
+        <p class="text-primary">Symbol:</p> 
+        <p class="text-primary">Name:</p> 
+        <p class="text-primary">Exchange:</p> 
+        <p class="text-primary">Open:</p> 
+        <p class="text-primary">High:</p> 
+        <p class="text-primary">Low:</p> 
+        <p class="text-primary">Close:</p> 
+        <p class="text-primary">Volume:</p> 
+        <p class="text-primary">Previous Close:</p> 
+        <p class="text-primary">Change:</p> 
+        <p class="text-primary">Percent Change:</p> 
+
+    </div>
+    <div class="col-2">
+        <p><%= stocks.symbol %></p>
+        <p><%= stocks.name %></p>
+        <p><%= stocks.exchange %></p>
+        <% const openFormatted = parseFloat(stocks.open) %>
+        <p><%= openFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const highFormatted = parseFloat(stocks.high) %>
+        <p><%= highFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const lowFormatted = parseFloat(stocks.low) %>
+        <p><%= lowFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const closeFormatted = parseFloat(stocks.close) %>
+        <p><%= closeFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% volumeFormatted = parseFloat(stocks.volume) %>
+        <p><%= volumeFormatted.toLocaleString("en-US", {maximumFractionDigits: "2"})%></p>
+        <% const previousFormatted = parseFloat(stocks.previous_close) %>
+        <p><%= previousFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const change = parseFloat(stocks.change) %>
+        <p><%= change.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const percentChangeFormatted = parseFloat(stocks.percent_change) %>
+        <p><%= `${percentChangeFormatted.toLocaleString("en-US", {maximumFractionDigits: "2"})}%` %></p>
+
+
+    </div>
+</div>
+
 
 
   

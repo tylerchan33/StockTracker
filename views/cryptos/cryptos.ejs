@@ -1,15 +1,39 @@
 <h1 style="text-align: center;"><%= cryptos.symbol %></h1>
-<% Object.keys(cryptos).forEach(function(key) { %>
-    <% if (typeof cryptos[key] === "string") {%>
-       <div class="row justify-content-center">
-            <div class="col-2">
-                <% let words =key.replaceAll('_', ' ') %>
-                <p class="text-primary"><%=`${words[0].toUpperCase() + words.substring(1)}:`%></p>
-            </div>
-        <div class="col-2">
-            <%= `${cryptos[key]}` %>
-        </div>
-      </div>
-  
-   <%}%>
-<% }); %>
+
+
+<div class="row justify-content-center">
+    <div class="col-2">
+        <p class="text-primary">Symbol:</p> 
+        <p class="text-primary">Name:</p> 
+        <p class="text-primary">Exchange:</p> 
+        <p class="text-primary">Open:</p> 
+        <p class="text-primary">High:</p> 
+        <p class="text-primary">Low:</p> 
+        <p class="text-primary">Close:</p> 
+        <p class="text-primary">Previous Close:</p> 
+        <p class="text-primary">Change:</p> 
+        <p class="text-primary">Percent Change:</p> 
+
+    </div>
+    <div class="col-2">
+        <p><%= cryptos.symbol %></p>
+        <p><%= cryptos.name %></p>
+        <p><%= cryptos.exchange %></p>
+        <% const openFormatted = parseFloat(cryptos.open) %>
+        <p><%= openFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const highFormatted = parseFloat(cryptos.high) %>
+        <p><%= highFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const lowFormatted = parseFloat(cryptos.low) %>
+        <p><%= lowFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const closeFormatted = parseFloat(cryptos.close) %>
+        <p><%= closeFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const previousFormatted = parseFloat(cryptos.previous_close) %>
+        <p><%= previousFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const change = parseFloat(cryptos.change) %>
+        <p><%= change.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
+        <% const percentChangeFormatted = parseFloat(cryptos.percent_change) %>
+        <p><%= `${percentChangeFormatted.toLocaleString("en-US", {maximumFractionDigits: "2"})}%` %></p>
+
+
+    </div>
+</div>
