@@ -5,12 +5,17 @@ justify-content:center;">
         <label for="search"></label>
         <div class="input-group mb-3 form-inline">
             <span class="input-group-text" id="basic-addon1">Email:</span>
-            <input id="email" type="email" name="email" value="<%=user.email%>">
+            <input id="email" type="email" name="email" value="<%=user.email%>" required>
         </div>
-        <label for="password"></label>
+        <label for="oldPassword"></label>
         <div class="input-group mb-3 form-inline">
-            <span class="input-group-text" id="basic-addon1">Password:</span>
+            <span class="input-group-text" id="basic-addon1">Old Password:</span>
             <input id="password" type="password" name="password" value="*****"required>
+        </div>
+        <label for="newPassword"></label>
+        <div class="input-group mb-3 form-inline">
+            <span class="input-group-text" id="basic-addon1">New Password:</span>
+            <input id="password" type="password" name="newPassword" value="********" required>
         </div>
         <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
             <button type="submit" class="btn btn-primary">Update Information</button>    

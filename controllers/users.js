@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 const user = require('../models/user')
 const { default: axios } = require('axios')
 const methodOverride = require("method-override")
+const noLoginMessage = 'Incorrect username or password'
 
 router.use(methodOverride("_method"))
 
@@ -70,7 +71,6 @@ router.post('/login', async (req, res) => {
                 email: req.body.email
             } 
         })
-        const noLoginMessage = 'Incorrect username or password'
 
         // if the user is not found -- send the user back to the login form
         if (!user) {
@@ -254,22 +254,24 @@ router.put("/profile/edit", async (req, res) => {
         if(!res.locals.user) {
             res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
 
+        }  else if(!bcrypt.compareSync(req.body.password, user.password)) {
+            console.log('wrong password')
+            res.redirect('/users/profile/account/?message=' + noLoginMessage)
         } else {
-            res.redirect("/users/profile")
-            }
+            const hashedPassword = bcrypt.hashSync(req.body.newPassword, 12)
             const editUser = await db.user.update({
                 email: req.body.email,
-
+                password: hashedPassword
             },{
                 where: {
                     id: res.locals.user.id
                 }
             })
-        
-
-        }   catch(err) {
-        console.log(err)
+            res.redirect("/users/profile")
         } 
+        }catch(err) {
+            console.log(err)
+        }
 })
 
 
