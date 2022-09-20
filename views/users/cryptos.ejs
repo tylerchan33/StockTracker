@@ -11,16 +11,16 @@
         <% cryptoAPI.price %>
         <% console.log("CRYPTOAPI HERE:",cryptoAPI) %>
         <% const currentPrice = cryptoAPI.price %>
-        <% const roundedPrice = parseFloat(currentPrice) %>
+        <% const roundedPrice = parseInt(currentPrice) %>
         <% const roundedPriceComma = roundedPrice.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const marketValue = (roundedPrice)*(cryptos.crypto_amount_bought) %>
-        <% const roundedMarketValue = parseFloat(marketValue) %>
+        <% const roundedMarketValue = parseInt(marketValue) %>
         <% const roundedMarketValueComma = roundedMarketValue.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const gains = ((roundedPrice)*(cryptos.crypto_amount_bought))-((cryptos.crypto_price_bought)*(cryptos.crypto_amount_bought)) %>
-        <% const roundedGains = parseFloat(gains) %>
+        <% const roundedGains = parseInt(gains) %>
         <% const roundedGainsComma = roundedGains.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const commaPrice = cryptos.crypto_price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
-        <% const commaShares = cryptos.crypto_amount_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
+        <% const commaShares = cryptos.crypto_amount_bought %>
    
         <table class="table">
             <thead>
@@ -37,7 +37,7 @@
               <tr>
                 <th scope="row"><a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol.toUpperCase() %></th>
                 <td><%= `${commaPrice}` %></td>
-                <td><%= commaShares  %></td>
+                <td><%= `${commaShares} ${cryptos.crypto_symbol.toUpperCase()}`%></td>
                 <td><%= `${roundedPriceComma}` %></td>
                 <td><%= `${roundedMarketValueComma}` %></td>
                 <td><%= `${roundedGainsComma}` %></td>
@@ -54,16 +54,16 @@
         <% console.log("CRYPTOAPI HERE:",cryptoAPI) %>
         <% cryptoAPI[cryptos.crypto_symbol].price %>
         <% const currentPrice = cryptoAPI[cryptos.crypto_symbol].price %>
-        <% const roundedPrice = parseFloat(currentPrice) %>
+        <% const roundedPrice = parseInt(currentPrice) %>
         <% const roundedPriceComma = roundedPrice.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const marketValue = (roundedPrice)*(cryptos.crypto_amount_bought) %>
-        <% const roundedMarketValue = parseFloat(marketValue) %>
+        <% const roundedMarketValue = parseInt(marketValue) %>
         <% const roundedMarketValueComma = roundedMarketValue.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const gains = ((roundedPrice)*(cryptos.crypto_amount_bought))-((cryptos.crypto_price_bought)*(cryptos.crypto_amount_bought)) %>
-        <% const roundedGains = parseFloat(gains) %>
+        <% const roundedGains = parseInt(gains) %>
         <% const roundedGainsComma = roundedGains.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const commaPrice = cryptos.crypto_price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
-        <% const commaShares = cryptos.crypto_amount_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
+        <% const commaShares = cryptos.crypto_amount_bought %>
     
 
         <table class="table table-striped">
@@ -81,7 +81,7 @@
               <tr>
                 <th scope="row"><a href="/cryptos/<%= cryptos.id%>"><%= cryptos.crypto_symbol.toUpperCase()  %></th>
                 <td><%= `${commaPrice}` %></td>
-                <td><%= commaShares  %></td>
+                <td><%= `${commaShares} ${cryptos.crypto_symbol.toUpperCase()}`  %></td>
                 <td><%= `${roundedPriceComma}` %></td>
                 <td><%= `${roundedMarketValueComma}` %></td>
                 <td><%= `${roundedGainsComma}` %></td>

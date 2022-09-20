@@ -9,13 +9,13 @@
         <% stockAPI.price %>
         <%console.log("API PRICE!!!",stockAPI.price) %>
         <% const currentPrice = stockAPI.price %>
-        <% const roundedPrice = parseFloat(currentPrice) %>
+        <% const roundedPrice = parseInt(currentPrice) %>
         <% const roundedPriceComma = roundedPrice.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const marketValue = (roundedPrice)*(stocks.shares_bought) %>
-        <% const roundedMarketValue = parseFloat(marketValue) %>
+        <% const roundedMarketValue = parseInt(marketValue) %>
         <% const roundedMarketValueComma = roundedMarketValue.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const gains = ((roundedPrice)*(stocks.shares_bought))-((stocks.price_bought)*(stocks.shares_bought)) %>
-        <% const roundedGains = parseFloat(gains) %>
+        <% const roundedGains = parseInt(gains) %>
         <% const roundedGainsComma = roundedGains.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const commaPrice = stocks.price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const commaShares = stocks.shares_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
@@ -51,14 +51,14 @@
         <% stockAPI[stocks.stock_symbol].price %>
         <% const currentPrice = stockAPI[stocks.stock_symbol].price %>
         <% console.log("CURRENT PRICE!!!", currentPrice) %>
-        <% const roundedPrice = parseFloat(currentPrice) %>
+        <% const roundedPrice = parseInt(currentPrice) %>
         <% const roundedPriceComma = roundedPrice.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% console.log("PRICEPRICEPRICE", typeof roundedPrice) %>
         <% const marketValue = (roundedPrice)*(stocks.shares_bought) %>
-        <% const roundedMarketValue = parseFloat(marketValue) %>
+        <% const roundedMarketValue = parseInt(marketValue) %>
         <% const roundedMarketValueComma = roundedMarketValue.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const gains = ((roundedPrice)*(stocks.shares_bought))-((stocks.price_bought)*(stocks.shares_bought)) %>
-        <% const roundedGains = parseFloat(gains) %>
+        <% const roundedGains = parseInt(gains) %>
         <% const roundedGainsComma = roundedGains.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const commaPrice = stocks.price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const commaShares = stocks.shares_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>

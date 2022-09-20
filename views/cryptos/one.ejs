@@ -1,21 +1,18 @@
 <div class="container text-center">
     <div class="col align self-center">
         <h2>Name: <%= crypto.crypto_symbol.toUpperCase()  %></h2>
-        <% const commaPrice = crypto.crypto_price_bought.toLocaleString() %>
-        <p>Average Price Bought: <%= `$${commaPrice}` %></p>
-        <% const commaShares = crypto.crypto_amount_bought.toLocaleString() %>
+        <% const commaPrice = crypto.crypto_price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
+        <p>Average Price Bought: <%= `${commaPrice}` %></p>
+        <% const commaShares = crypto.crypto_amount_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
         <p>Amount Bought: <%= commaShares%></p>  
     </div>
 </div>
 
 
-<div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+<div class="mx-auto btn-group text-center d-flex justify-content-center gap-3" role="group" aria-label="Vertical button group">
     <form method="GET" action="/cryptos/<%=crypto.id%>/update">
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
-</div>
-<p></p>
-<div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
         <form method="POST" action="/cryptos/<%=crypto.id%>/?_method=DELETE">
             <button type="submit" class="btn btn-primary">Remove</button>
         </form>
