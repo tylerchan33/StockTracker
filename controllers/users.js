@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 const user = require('../models/user')
 const { default: axios } = require('axios')
 const methodOverride = require("method-override")
-const noLoginMessage = 'Incorrect username or password'
+const noLoginMessage = "Incorrect username or password"
 
 router.use(methodOverride("_method"))
 

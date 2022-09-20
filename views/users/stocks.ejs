@@ -1,4 +1,4 @@
-<h3 id="myStocks">My Stocks</h3>
+<h1 id="myStocks">My Stocks</h1>
 
 
 <% if (stocky.length === 0) { %>
@@ -7,17 +7,18 @@
 <% if (stocky.length === 1) { %>
     <% myStocks.forEach(stocks => { %>
         <% stockAPI.price %>
-        <% const currentPrice = stockAPI.price.toLocaleString() %>
+        <%console.log("API PRICE!!!",stockAPI.price) %>
+        <% const currentPrice = stockAPI.price %>
         <% const roundedPrice = parseFloat(currentPrice) %>
-        <% const roundedPriceComma = roundedPrice.toLocaleString() %>
+        <% const roundedPriceComma = roundedPrice.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const marketValue = (roundedPrice)*(stocks.shares_bought) %>
         <% const roundedMarketValue = parseFloat(marketValue) %>
-        <% const roundedMarketValueComma = roundedMarketValue.toLocaleString() %>
+        <% const roundedMarketValueComma = roundedMarketValue.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const gains = ((roundedPrice)*(stocks.shares_bought))-((stocks.price_bought)*(stocks.shares_bought)) %>
         <% const roundedGains = parseFloat(gains) %>
-        <% const roundedGainsComma = roundedGains.toLocaleString() %>
-        <% const commaPrice = stocks.price_bought.toLocaleString() %>
-        <% const commaShares = stocks.shares_bought.toLocaleString() %>
+        <% const roundedGainsComma = roundedGains.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
+        <% const commaPrice = stocks.price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
+        <% const commaShares = stocks.shares_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
         <% console.log("CURRENTPRICE!:", roundedPrice) %>
 
         <table class="table">
@@ -34,11 +35,11 @@
             <tbody>
               <tr>
                 <th scope="row"><a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol.toUpperCase() %></th>
-                <td><%= `$${commaPrice}` %></td>
+                <td><%= `${commaPrice}` %></td>
                 <td><%= commaShares %></td>
-                <td><%= `$${roundedPriceComma}` %></td>
-                <td><%= `$${roundedMarketValueComma}` %></td>
-                <td><%= `$${roundedGainsComma}` %></td>
+                <td><%= `${roundedPriceComma}` %></td>
+                <td><%= `${roundedMarketValueComma}` %></td>
+                <td><%= `${roundedGainsComma}` %></td>
                 
 
               </tr>
@@ -49,19 +50,20 @@
         <% myStocks.forEach(stocks => { %>
         <% stockAPI[stocks.stock_symbol].price %>
         <% const currentPrice = stockAPI[stocks.stock_symbol].price %>
+        <% console.log("CURRENT PRICE!!!", currentPrice) %>
         <% const roundedPrice = parseFloat(currentPrice) %>
-        <% const roundedPriceComma = roundedPrice.toLocaleString() %>
+        <% const roundedPriceComma = roundedPrice.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% console.log("PRICEPRICEPRICE", typeof roundedPrice) %>
         <% const marketValue = (roundedPrice)*(stocks.shares_bought) %>
         <% const roundedMarketValue = parseFloat(marketValue) %>
-        <% const roundedMarketValueComma = roundedMarketValue.toLocaleString() %>
+        <% const roundedMarketValueComma = roundedMarketValue.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const gains = ((roundedPrice)*(stocks.shares_bought))-((stocks.price_bought)*(stocks.shares_bought)) %>
         <% const roundedGains = parseFloat(gains) %>
-        <% const roundedGainsComma = roundedGains.toLocaleString() %>
-        <% const commaPrice = stocks.price_bought.toLocaleString() %>
-        <% const commaShares = stocks.shares_bought.toLocaleString() %>
+        <% const roundedGainsComma = roundedGains.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
+        <% const commaPrice = stocks.price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
+        <% const commaShares = stocks.shares_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
        
-         <table class="table">
+         <table class="table table-striped table-bordered">
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -75,11 +77,11 @@
             <tbody>
               <tr>
                 <th scope="row"><a href="/stocks/<%= stocks.id%>"><%= stocks.stock_symbol.toUpperCase() %></th>
-                <td><%= `$${commaPrice}` %></td>
+                <td><%= `${commaPrice}` %></td>
                 <td><%= commaShares %></td>
-                <td><%= `$${roundedPriceComma}` %></td>
-                <td><%= `$${roundedMarketValueComma}` %></td>
-                <td><%= `$${roundedGainsComma}` %></td>
+                <td><%= `${roundedPriceComma}` %></td>
+                <td><%= `${roundedMarketValueComma}` %></td>
+                <td><%= `${roundedGainsComma}` %></td>
                 
 
               </tr>

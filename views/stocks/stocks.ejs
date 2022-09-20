@@ -1,4 +1,5 @@
 <h1 style="text-align: center;"><%= stocks.symbol %></h1>
+<% console.log("ERRO STOCKS", stocks) %>
 <% Object.keys(stocks).forEach(function(key) { %>
   <% if (typeof stocks[key] === "string") {%>
         
