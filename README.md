@@ -18,9 +18,6 @@ Tired of having to track your stocks across multiple accounts?  Not satisfied wi
 
 https://twelvedata.com/
 
-proof of concept:
-
-![api](images/APIProof.png)
 
 *** 
 
@@ -28,18 +25,33 @@ proof of concept:
 
 | Method | Action | Description |
 |:------:|:------:|:-----------:|
-| POST   | /users | Creates new user |
-| GET    | /users/new | Shows form for creating new sser |
-| PUT    | /users/:id | Edit User |
-| DELETE | /users/:id | Delete User |
+| POST   | /users | Creates new user|
+| GET    | /users/new | Shows form for creating new user|
+| GET    | /users/stocks | Shows user's stocks|
+| GET    | /users/cryptos | Shows user's crypto|
+| GET    | /users/profile | Shows user's profile|
+| PUT    | /users/profile/edit | Edits user information|
+| DELETE | /users/profile | Deletes user|
 
 | Method | Action | Description |
 |:------:|:------:|:-----------:|
-| GET    | /users/:id/stocks | Show user's stocks |
-| POST   | /users/:id/stocks| Add's new stocks to user |
-| GET    | /users/:id/stocks/new | Shows form for adding new stocks |
-| PUT    | /users/:id/stocks | Updates user's stocks |
-| DELETE | /users/:id/stocks/:id | Deletes stock from users list of stocks|
+| GET    | /stocks/search | Searches for information about stock|
+| GET    | /stocks/add | Shows user form to add their stock|
+| GET    | /stocks/:id| Shows user one of their stocks|
+| GET    | /stocks/:id/update| Shows user form to update one of their stocks|
+| POST   | /stocks/add | Adds stock to user's profile|
+| PUT    | /stocks/:id/update | Updates user's stock information|
+| DELETE | /stocks/:id| Deletes stock from user's list of stocks|
+
+| Method | Action | Description |
+|:------:|:------:|:-----------:|
+| GET    | /cryptos/search | Searches for information about crypto|
+| GET    | /cryptos/add | Shows user form to add their crypto|
+| GET    | /cryptos/:id| Shows user one of their cryptos|
+| GET    | /cryptos/:id/update| Shows user form to update one of their cryptos|
+| POST   | /cryptos/add | Adds crypto to user's profile|
+| PUT    | /cryptos/:id/update | Updates user's crypto information|
+| DELETE | /cryptos/:id| Deletes crypto from user's list of crypto|
 
 ### Wireframe:
 
@@ -77,6 +89,6 @@ Add Stock Page:
 - add more information for each stock
 - make the page look really nice
 - add graph/trends
-- add cryptocurrency tracker
+
 
 
