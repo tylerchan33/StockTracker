@@ -139,8 +139,15 @@ router.get('/stocks', async (req, res) => {
             }
             localStock()
             const stocky = localStock()
+            console.log("STOCKY1", stocky)
+
+            if (stocky.length > 8) {
+                stocky.length = 8
+            }
+
+
           
-            console.log("STOCKY", stocky)
+            console.log("STOCKY2", stocky)
         
             const url =  `https://api.twelvedata.com/price?symbol=${stocky}&apikey=${process.env.API_KEY}&source=docs`
             axios.get(url)
@@ -190,6 +197,10 @@ router.get('/cryptos', async (req, res) => {
             const crypty = localCrypto()
           
             console.log("CRYPTY", crypty)
+
+            if (crypty.length > 8) {
+                crypty.length = 8
+            }
         
             const url =  `https://api.twelvedata.com/price?symbol=${crypty}&apikey=${process.env.API_KEY}&source=docs`
             axios.get(url)

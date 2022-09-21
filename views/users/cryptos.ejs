@@ -1,12 +1,13 @@
-<h3 id="myCrypto">My Crypto</h3>
+<h1 id="myCrypto">My Crypto</h1>
+<p style="text-align: center;">Note: StockTracker only currently supports showing 8 crypto. </p>
 <% console.log("MYCRYPTS", myCryptos) %>
 <% console.log("CRYPTYEKJL", crypty) %>
 
 <% if (crypty.length === 0) { %>
-    <h2> You have no crypto!</h2>
-<% } %>
-
-<% if (crypty.length === 1) { %>
+    <h4 style="text-align: center;"> You have no crypto!</h4>
+<% } else if (crypty.length > 8) { %>
+  <h4 style="text-align: center;"> StockTracker currently only supports displaying 8 crypto.</h4>
+<% } else if (crypty.length === 1) { %>
     <% myCryptos.forEach(cryptos => { %>
         <% cryptoAPI.price %>
         <% console.log("CRYPTOAPI HERE:",cryptoAPI) %>

@@ -1,10 +1,12 @@
 <h1 id="myStocks">My Stocks</h1>
+<p style="text-align: center;
+font-size: 12px;">Note: StockTracker only currently supports showing 8 stocks. </p>
+
 
 
 <% if (stocky.length === 0) { %>
-    <h2> You have no stocks!</h2>
-<% } %>
-<% if (stocky.length === 1) { %>
+  <h2> You have no stocks!</h2>
+<% } else if (stocky.length === 1) { %>
     <% myStocks.forEach(stocks => { %>
         <% stockAPI.price %>
         <%console.log("API PRICE!!!",stockAPI.price) %>
@@ -46,7 +48,7 @@
             </tbody>
           </table>
     <% }) %>
-<% } else { %>
+<% } else if (stocky.length > 1 && stocky.length <= 8) { %>
         <% myStocks.forEach(stocks => { %>
           <% console.log("MULTIPLE STOCKS", stockAPI) %>
         <% stockAPI[stocks.stock_symbol].price %>
@@ -91,6 +93,8 @@
 
     
     <% }) %>
-<% } %>
+<% } else { %>
+   <h1 style="text-align: center;">StockTracker only supports showing 8 stocks.</h1>
+<%} %>
     
 
