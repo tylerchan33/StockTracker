@@ -6,3 +6,15 @@
     text-align: center;
 }
 
+#background {
+    background-color: rgb(222, 208, 193);
+}
+
+p,h2, h3, h4 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}

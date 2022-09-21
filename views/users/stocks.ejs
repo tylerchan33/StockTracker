@@ -1,11 +1,10 @@
 <h1 id="myStocks">My Stocks</h1>
-<p style="text-align: center;
-font-size: 12px;">Note: StockTracker only currently supports showing 8 stocks. </p>
+<p style="text-align: center;">Note: StockTracker only currently supports showing 8 stocks. </p>
 
 
 
 <% if (stocky.length === 0) { %>
-  <h2> You have no stocks!</h2>
+  <h2 style="text-align: center;"> You have no stocks!</h2>
 <% } else if (stocky.length === 1) { %>
     <% myStocks.forEach(stocks => { %>
         <% stockAPI.price %>
@@ -48,9 +47,10 @@ font-size: 12px;">Note: StockTracker only currently supports showing 8 stocks. <
             </tbody>
           </table>
     <% }) %>
-<% } else if (stocky.length > 1 && stocky.length <= 8) { %>
+<% } else if (stocky.length > 1 && stocky.length <= 8 && stockAPI.message == undefined ) { %>
         <% myStocks.forEach(stocks => { %>
           <% console.log("MULTIPLE STOCKS", stockAPI) %>
+          <% console.log("STOCKY PRICE", typeof stockAPI[stocks.stock_symbol].price === "string") %>
         <% stockAPI[stocks.stock_symbol].price %>
         <% const currentPrice = stockAPI[stocks.stock_symbol].price %>
         <% console.log("CURRENT PRICE!!!", currentPrice) %>
@@ -94,7 +94,9 @@ font-size: 12px;">Note: StockTracker only currently supports showing 8 stocks. <
     
     <% }) %>
 <% } else { %>
-   <h1 style="text-align: center;">StockTracker only supports showing 8 stocks.</h1>
+
+
+   <p style="text-align: center;">If you are experiencing this page, then you must have more than 8 stocks or the API is currently handling too many requests.  Wait around a minute and refresh the page to view your stocks.</p>
 <%} %>
     
 

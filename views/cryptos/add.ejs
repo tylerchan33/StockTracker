@@ -1,18 +1,28 @@
-<h1 style="text-align: center;">Cryptocurrency Adder</h1>
-<p style="text-align: center;">Add cryptocurrency to your profile:</p>
-
-
+<h1 style="text-align: center; font-weight: bold;">Crypto Adder</h1>
+<p style="text-align: center;
+background-color: rgb(184, 173, 173);
+width: 40vw;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 0;
+font-size: 20px;
+">
+Add crypto to your profile:</p>
 
 <div style="display: flex;
-justify-content: center;">
+justify-content: center;
+background-color: rgb(184, 173, 173);
+width: 40vw;
+margin-left: auto;
+margin-right: auto;">
     <form method="POST" action="/cryptos/add">
       <label for="cryptoSymbol"></label>
-      <div class="input-group mb-3">
+      <div class="input-group">
           <span class="input-group-text" id="basic-addon1">Crypto Symbol:</span>
           <input type="text" class="col-5" id="cryptoSymbol" name ="cryptoSymbol" placeholder="e.g. BTC/EUR" aria-label="cryptoSymbol" aria-describedby="basic-addon1">
       </div>
       <label for="cryptoBought"></label>
-      <div class="input-group mb-3">
+      <div class="input-group">
         <span class="input-group-text" id="basic-addon1">Amount of Crypto:</span>
         <input type="text" class="col-5" id="cryptoBought" name ="cryptoBought" placeholder="Enter number" aria-label="cryptoBought" aria-describedby="basic-addon1">
       </div>

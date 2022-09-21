@@ -5,8 +5,6 @@
 
 <% if (crypty.length === 0) { %>
     <h4 style="text-align: center;"> You have no crypto!</h4>
-<% } else if (crypty.length > 8) { %>
-  <h4 style="text-align: center;"> StockTracker currently only supports displaying 8 crypto.</h4>
 <% } else if (crypty.length === 1) { %>
     <% myCryptos.forEach(cryptos => { %>
         <% cryptoAPI.price %>
@@ -49,7 +47,7 @@
           </table>
         
 <% }) %>
-<%} else { %>
+<%} else if (crypty.length > 1 && crypty.length <= 8 && cryptoAPI.message == undefined ) { %>
      <% myCryptos.forEach(cryptos => { %>
         <% cryptoAPI[cryptos.crypto_symbol].price %>
         <% console.log("CRYPTOAPI HERE:",cryptoAPI) %>
@@ -91,15 +89,9 @@
               </tr>
             </tbody>
           </table>
+          <% }) %>
+    <% } else {%>
 
-
-
-
-
-  
-    
-   
-   
-
-<% }) %>
-<% } %>
+        <p style="text-align: center;">If you are experiencing this page, then you must have more than 8 crypto or the API is currently handling too many requests.  Wait around a minute and refresh the page to view your crypto.</p>
+     <%} %>
+         

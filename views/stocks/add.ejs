@@ -1,19 +1,32 @@
-<h1 style="text-align: center;">Stock Adder</h1>
-<p style="text-align: center;">Add stocks to your profile:</p>
+<h1 style="text-align: center; font-weight: bold;">Stock Adder</h1>
+<p style="text-align: center;
+background-color: rgb(184, 173, 173);
+width: 40vw;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 0;
+font-size: 20px;
+">
+Add stocks to your profile:</p>
 
 
 
 <div style="display: flex;
-justify-content: center;">
+justify-content: center;
+background-color: rgb(184, 173, 173);
+width: 40vw;
+margin-left: auto;
+margin-right: auto;">
+
     <form method="POST" action="/stocks/add">
       <label for="symbol"></label>
-      <div class="input-group mb-3">
+      <div class="input-group">
           <span class="input-group-text" id="basic-addon1">Stock Symbol:</span>
           <input type="text" class="col-5" id="symbol" name ="symbol" placeholder="e.g. TSLA" aria-label="symbol" aria-describedby="basic-addon1">
          
       </div>
       <label for="sharesBought"></label>
-      <div class="input-group mb-3">
+      <div class="input-group">
         <span class="input-group-text" id="basic-addon1">Number of Shares:</span>
         <input type="text" class="col-5" id="sharesBought" name ="sharesBought" placeholder="Enter a number." aria-label="sharesBought" aria-describedby="basic-addon1">
       </div>

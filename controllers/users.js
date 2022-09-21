@@ -237,6 +237,7 @@ router.delete("/profile", async (req, res) => {
         }
     } catch(err) {
         console.log(err)
+        res.send("servor error")
     }
 })
 
@@ -251,6 +252,7 @@ router.get("/profile/edit", async (req, res) => {
         }
         catch(err) {
         console.log(err)
+        res.send("servor error")
         }
     
 })
@@ -282,6 +284,7 @@ router.put("/profile/edit", async (req, res) => {
         } 
         }catch(err) {
             console.log(err)
+            res.send("servor error")
         }
 })
 

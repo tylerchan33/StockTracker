@@ -1,48 +1,73 @@
-<h1 style="text-align: center;"><%= stocks.symbol %></h1>
-<% console.log("ERRO STOCKS", stocks) %>
-<br>
+<h1 style="text-align: center;"><%= stocks.name %></h1>
 
 
-  <div class="row justify-content-center">
-    <div class="col-2">
-        <p class="text-primary">Symbol:</p> 
-        <p class="text-primary">Name:</p> 
-        <p class="text-primary">Exchange:</p> 
-        <p class="text-primary">Open:</p> 
-        <p class="text-primary">High:</p> 
-        <p class="text-primary">Low:</p> 
-        <p class="text-primary">Close:</p> 
-        <p class="text-primary">Volume:</p> 
-        <p class="text-primary">Previous Close:</p> 
-        <p class="text-primary">Change:</p> 
-        <p class="text-primary">Percent Change:</p> 
-
-    </div>
-    <div class="col-2">
-        <p><%= stocks.symbol %></p>
-        <p><%= stocks.name %></p>
-        <p><%= stocks.exchange %></p>
-        <% const openFormatted = parseFloat(stocks.open) %>
-        <p><%= openFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
-        <% const highFormatted = parseFloat(stocks.high) %>
-        <p><%= highFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
-        <% const lowFormatted = parseFloat(stocks.low) %>
-        <p><%= lowFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
-        <% const closeFormatted = parseFloat(stocks.close) %>
-        <p><%= closeFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
-        <% volumeFormatted = parseFloat(stocks.volume) %>
-        <p><%= volumeFormatted.toLocaleString("en-US", {maximumFractionDigits: "2"})%></p>
-        <% const previousFormatted = parseFloat(stocks.previous_close) %>
-        <p><%= previousFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
-        <% const change = parseFloat(stocks.change) %>
-        <p><%= change.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></p>
-        <% const percentChangeFormatted = parseFloat(stocks.percent_change) %>
-        <p><%= `${percentChangeFormatted.toLocaleString("en-US", {maximumFractionDigits: "2"})}%` %></p>
 
 
-    </div>
+
+<div class="container mt-3" style="width: 30vw;">
+    <table class="table table-dark table-striped">
+        <tbody>
+            <trc>
+                <td class="text-primary">Symbol:</td>
+                <td><%= stocks.symbol %></td>
+            </tr>
+            <tr>
+                <td class="text-primary">Name:</td>
+                <td><%= stocks.name %></td>
+            </tr>
+            <tr>
+                <td class="text-primary">Exchange:</td>
+                <td><%= stocks.exchange %></td>
+            </tr>
+            <tr>
+                <td class="text-primary">Volume:</td>
+                <% const volumeFormatted = parseFloat(stocks.volume) %>
+                <td><%= volumeFormatted.toLocaleString("en-US", {maximumFractionDigits: "2"})%></td>
+            </tr>
+            <tr>
+                <td class="text-primary">Open:</td>
+                <% const openFormatted = parseFloat(stocks.open) %>
+                <td><%= openFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></td>
+            </tr>
+            <tr>
+                <td class="text-primary">High:</td>
+                <% const highFormatted = parseFloat(stocks.high) %>
+                <td><%= highFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></td>
+            </tr>
+            <tr>
+                <td class="text-primary">Low:</td>
+                <% const lowFormatted = parseFloat(stocks.low) %>
+                <td><%= lowFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></td>
+            </tr>
+            <tr>
+                <td class="text-primary">Close:</td>
+                <% const closeFormatted = parseFloat(stocks.close) %>
+                <td><%= closeFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></td>
+            </tr>
+            <tr>
+                <td class="text-primary">Previous Close:</td>
+                <% const previousFormatted = parseFloat(stocks.previous_close) %>
+                <td><%= previousFormatted.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></td>
+            </tr>
+            <tr>
+                <td class="text-primary">Change:</td>
+                <% const change = parseFloat(stocks.change) %>
+                <td><%= change.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %></td>
+            </tr>
+            <tr>
+                <td class="text-primary">Percent Change:</td>
+                <% const percentChangeFormatted = parseFloat(stocks.percent_change) %>
+                <td><%= `${percentChangeFormatted.toLocaleString("en-US", {maximumFractionDigits: "2"})}%` %></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
+<br>
+<div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+    <form method ="GET" action="/stocks/add">
+    <button type="submit" class="btn btn-primary">Add to your profile</button>
+    </form>
+</div>
 
 
   
