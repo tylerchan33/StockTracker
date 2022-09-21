@@ -7,6 +7,35 @@ Link to my site: https://stocktracker-tylerchan33.koyeb.app/
 Tired of having to track your stocks across multiple accounts?  Not satisfied with your current stock tracking app?  Look no further than Stocktracker!  Stocktracker will let you add your stocks to our page and track them as you become the next Warren Buffett or plunge into despair.  You'll be able to add the price you bought the stock at and see the current stock price using Twelve Data API and see your losses and gains!  
 
 ***
+
+### Installation Instructions:
+
+- Fork and clone repo.  
+- Run npm init
+- In your terminal, npm i in order to install the dependencies.
+- create a .env file with your own information
+    - API_KEY=""
+    - ENC_SECRET=""
+    - DATABASE_URI=""
+- you can get an API key at https://twelvedata.com/
+- enter whatever string for the ENC_KEY
+- in order to get a database URI, you must sign up for supabase and follow these instructions https://hackmd.io/k9Jgd0LSQQChtBSO_JUfGw?view
+- create set up the config/config.json and enter 
+```{
+  "development": {
+    "database": "stocktracker",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "use_env_variable": "DATABASE_URI"
+  }
+}
+```
+- run sequelize db:migrate to migrate the database to your SQL
+- run nodemon to start running the project and connect to localhost:3000 in the browser to run my app!
+
+***
 ### MVP/Stretch Goals
 
 #### MVP

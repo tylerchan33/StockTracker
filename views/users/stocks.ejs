@@ -8,7 +8,7 @@
 <% } else if (stocky.length === 1) { %>
     <% myStocks.forEach(stocks => { %>
         <% stockAPI.price %>
-        <%console.log("API PRICE!!!",stockAPI.price) %>
+        <%console.log("API PRICE!!!", stockAPI.price) %>
         <% const currentPrice = stockAPI.price %>
         <% const roundedPrice = parseFloat(currentPrice) %>
         <% const roundedPriceComma = roundedPrice.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
@@ -50,7 +50,7 @@
 <% } else if (stocky.length > 1 && stocky.length <= 8 && stockAPI.message == undefined ) { %>
         <% myStocks.forEach(stocks => { %>
           <% console.log("MULTIPLE STOCKS", stockAPI) %>
-          <% console.log("STOCKY PRICE", typeof stockAPI[stocks.stock_symbol].price === "string") %>
+         
         <% stockAPI[stocks.stock_symbol].price %>
         <% const currentPrice = stockAPI[stocks.stock_symbol].price %>
         <% console.log("CURRENT PRICE!!!", currentPrice) %>

@@ -143,6 +143,7 @@ router.get('/stocks', async (req, res) => {
             if (stocky.length > 8) {
                 stocky.length = 8
             }
+            console.log("STOCKY", stocky)
 
             const url =  `https://api.twelvedata.com/price?symbol=${stocky}&apikey=${process.env.API_KEY}&source=docs`
             axios.get(url)
