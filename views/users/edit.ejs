@@ -1,7 +1,11 @@
-<body style="background-color: rgb(184, 173, 173);">
+<body style="background-color: rgb(222, 208, 193);">
     <h1 style="text-align: center;">Edit your information</h1>
     <div style="display: flex;
-    justify-content:center;">
+    justify-content:center;
+    background-color: rgb(184, 173, 173);
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;">
         <form method="POST" action="/users/profile/edit/?_method=PUT">
             <label for="search"></label>
             <div class="input-group mb-3 form-inline">
@@ -10,13 +14,13 @@
             </div>
             <label for="oldPassword"></label>
             <div class="input-group mb-3 form-inline">
-                <span class="input-group-text" id="basic-addon1">Old Password:</span>
-                <input id="password" type="password" name="password" value="*****"required>
+                <span class="input-group-text" id="basic-addon1">Current Password:</span>
+                <input id="password" type="password" name="password" placeholder="Enter current password" required>
             </div>
             <label for="newPassword"></label>
             <div class="input-group mb-3 form-inline">
                 <span class="input-group-text" id="basic-addon1">New Password:</span>
-                <input id="password" type="password" name="newPassword" value="********" required>
+                <input id="password" type="password" name="password" placeholder="Enter new password" required>
             </div>
             <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
                 <button type="submit" class="btn btn-primary">Update Information</button>    

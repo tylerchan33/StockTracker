@@ -1,10 +1,11 @@
-<h1 id="myStocks">My Stocks</h1>
-<p style="text-align: center;">Note: StockTracker only currently supports showing 8 stocks. </p>
+<h1 id="myStocks" style="font-weight: bold;">My Stocks</h1>
+<p style="text-align: center;">Note: StockTracker currently only supports showing 8 of your stocks. </p>
 
 
 
 <% if (stocky.length === 0) { %>
   <h2 style="text-align: center;"> You have no stocks!</h2>
+
 <% } else if (stocky.length === 1) { %>
     <% myStocks.forEach(stocks => { %>
         <% stockAPI.price %>
@@ -22,7 +23,7 @@
         <% const commaShares = stocks.shares_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
         <% console.log("CURRENTPRICE!:", roundedPrice) %>
 
-        <table class="table">
+        <table class="table" style="background-color: white;">
             <thead>
               <tr> 
                 <th scope="col">Name</th>
@@ -66,7 +67,7 @@
         <% const commaPrice = stocks.price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const commaShares = stocks.shares_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
        
-         <table class="table table-striped table-bordered">
+         <table class="table table-striped table-bordered" style="background-color: white;">
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -94,6 +95,7 @@
     
     <% }) %>
 <% } else { %>
+
 
 
    <p style="text-align: center;">If you are experiencing this page, then you must have more than 8 stocks or the API is currently handling too many requests.  Wait around a minute and refresh the page to view your stocks.</p>

@@ -3,12 +3,12 @@
 <br>
 <% console.log("USERRRRR", user.id) %>
 <div class = "container text-center">
-    <div class=" d-flex row justify-content-center">
-        <div style="display:flex; width: 20vw; height: 30vh; align-items: center; background-color: rgb(144, 14, 40);" class="col-sm4 card p-3 mb-2">
-            <h3 style="margin: auto; text-align: center;"><a href="/users/stocks" style="color: rgb(177, 173, 173); text-decoration: none;">My Stocks</a></h3>
+    <div class=" d-flex row justify-content-center gap-3">
+        <div style="display:flex; width: 20vw; height: 30vh; align-items: center; background-color: rgb(39, 46, 184);" class="col-sm4 card p-3 mb-2">
+            <h3 style="margin: auto; text-align: center;"><a href="/users/stocks" style="color: rgb(0, 0, 0); text-decoration: none;">My Stocks</a></h3>
         </div>
-        <div style="display:flex; width: 20vw; height: 30vh; align-items: center; background-color: rgb(47, 47, 162);" class="col-sm4 card p-3 mb-2">
-            <h3 style="margin: auto; text-align: center;"><a href="/users/stocks" style="color: rgb(177, 173, 173); text-decoration: none;">My Crypto</a></h3>
+        <div style="display:flex; width: 20vw; height: 30vh; align-items: center; background-color: rgb(190, 41, 41);" class="col-sm4 card p-3 mb-2">
+            <h3 style="margin: auto; text-align: center;"><a href="/users/cryptos" style="color: rgb(0, 0, 0); text-decoration: none;">My Crypto</a></h3>
         </div>
     </div>
 </div>
@@ -22,10 +22,26 @@
     </form>
     <form method="POST" action="/users/profile/?_method=DELETE">
         <textarea hidden id="userId" name="userId"><%user.id%></textarea>
-        <button type="submit" class="btn btn-primary">Delete Account</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Account</button>
     </form>
 </div>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete your account?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No.</button>
+          <form method="POST" action="/users/profile/?_method=DELETE">
+            <button type="submit" class="btn btn-primary">Yes, goodbye forever.</button>
+           </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

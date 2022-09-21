@@ -233,6 +233,7 @@ router.delete("/profile", async (req, res) => {
                 email: res.locals.user.email
                 }
             })
+        
         res.redirect("/")
         }
     } catch(err) {

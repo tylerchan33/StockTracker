@@ -1,5 +1,5 @@
-<h1 id="myCrypto">My Crypto</h1>
-<p style="text-align: center;">Note: StockTracker only currently supports showing 8 crypto. </p>
+<h1 id="myCrypto" style="font-weight: bold;">My Crypto</h1>
+<p style="text-align: center;">Note: StockTracker currently only supports showing 8 of your crypto. </p>
 <% console.log("MYCRYPTS", myCryptos) %>
 <% console.log("CRYPTYEKJL", crypty) %>
 
@@ -21,7 +21,7 @@
         <% const commaPrice = cryptos.crypto_price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const commaShares = cryptos.crypto_amount_bought.toLocaleString() %>
    
-        <table class="table">
+        <table class="table" style="background-color: white;">
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -65,7 +65,7 @@
         <% const commaShares = cryptos.crypto_amount_bought.toLocaleString() %>
     
 
-        <table class="table table-striped">
+        <table class="table table-striped" style="background-color: white;">
             <thead>
               <tr>
                 <th scope="col">Name</th>
