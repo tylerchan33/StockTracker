@@ -82,14 +82,13 @@ Add Stock Page:
 #### MVP
 
 - user is able to view, add, delete, and update stocks on profile
-- user can login and save their stocks
 - user can add what price they bought the stock at and show their net gain/loss
 - user can search for a stock
 
 #### Stretch Goals
 
 - add more information for each stock
-- make the page look really nice
+- make the styling look great
 - add graph/trends
 
 
