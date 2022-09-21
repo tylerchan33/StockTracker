@@ -1,26 +1,22 @@
+<!-- login page for user -->
 <h1 style="text-align: center;">Login to your StockTracker account</h1>
-
-
 
 <% if (message) { %>
     <p style="text-align: center;"><%= message %></p>
 <% } %>
 
-
-
-
-
-    <form method="POST" action="/users/login">
-        <div class="input-group" style="display: flex; justify-content: center;">
-            <span class="input-group-text" id="basic-addon1">Email:</span>
-            <input  id="email" type="email" name="email" required>
-            <br>
-            <span class="input-group-text" id="basic-addon1">Password:</span>
-            <input id="password" type="password" name="password" required>
-        </div>
+<form method="POST" action="/users/login">
+    <div class="input-group" style="display: flex; justify-content: center;">
+        <span class="input-group-text" id="basic-addon1">Email:</span>
+        <input  id="email" type="email" name="email" required>
         <br>
-        <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
-            <button type="submit" class="btn btn-primary">Login</button>    
+        <span class="input-group-text" id="basic-addon1">Password:</span>
+        <input id="password" type="password" name="password" required>
+    </div>
+        <br>
+
+    <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+        <button type="submit" class="btn btn-primary">Login</button>    
       </div>
     </form>
 

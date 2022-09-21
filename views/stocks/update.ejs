@@ -1,19 +1,25 @@
+<!-- allows user to update their stock information -->
 <body style="background-color: rgb(222, 208, 193);">
 <h1 style="text-align:center;">Update Stock Information:</h1>
 
 <div style="display: flex;
-justify-content: center;">
+            justify-content: center;
+            background-color: rgb(39, 46, 184);
+            width: 40vw;
+            margin-left: auto;
+            margin-right: auto;">
     <form method="POST" action="/stocks/<%=stock.id%>/update/?_method=PUT">
-        <label for="symbol"></label>
+        <br>
         <div class="input-group">
             <span class="input-group-text" id="basic-addon1">Stock Symbol:</span>
             <input type="text" class="col-5" id="symbol" name ="symbol" placeholder="e.g. TSLA" aria-label="symbol" aria-describedby="basic-addon1">
         </div>
-            <label for="sharesBought"></label>
+        <br>
             <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Number of Shares:</span>
             <input type="text" class="col-5" id="sharesBought" name ="sharesBought" placeholder="Enter a number." aria-label="sharesBought" aria-describedby="basic-addon1">
         </div>
+        
       <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Average Price of Shares Bought:</span>
             <input type="text" class="col-5" id="priceBought" name ="priceBought" placeholder="Enter price ($)." aria-label="priceBought" aria-describedby="basic-addon1">

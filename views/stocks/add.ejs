@@ -1,49 +1,42 @@
+<!-- allows user to add stock to their profile -->
 <h1 style="text-align: center; font-weight: bold;">Stock Adder</h1>
 <p style="text-align: center;
-background-color: rgb(39, 46, 184);
-width: 40vw;
-margin-left: auto;
-margin-right: auto;
-margin-bottom: 0;
-font-size: 20px;
-color: white;
-">
+    background-color: rgb(39, 46, 184);
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    font-size: 20px;
+    color: white;
+    ">
 Add stocks to your profile:</p>
 
-
-
 <div style="display: flex;
-justify-content: center;
-background-color: rgb(39, 46, 184);
-width: 40vw;
-margin-left: auto;
-margin-right: auto;">
+            justify-content: center;
+            background-color: rgb(39, 46, 184);
+            width: 40vw;
+            margin-left: auto;
+            margin-right: auto;">
 
     <form method="POST" action="/stocks/add">
-      <label for="symbol"></label>
       <div class="input-group">
           <span class="input-group-text" id="basic-addon1">Stock Symbol:</span>
           <input type="text" class="col-5" id="symbol" name ="symbol" placeholder="e.g. TSLA" aria-label="symbol" aria-describedby="basic-addon1">
-         
       </div>
-      <label for="sharesBought"></label>
+      <br>
       <div class="input-group">
         <span class="input-group-text" id="basic-addon1">Number of Shares:</span>
         <input type="text" class="col-5" id="sharesBought" name ="sharesBought" placeholder="Enter a number." aria-label="sharesBought" aria-describedby="basic-addon1">
       </div>
-      <label for="priceBought"></label>
+      <br>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Average Price of Shares Bought:</span>
         <input type="text" class="col-5" id="priceBought" name ="priceBought" placeholder="Enter price ($)." aria-label="priceBought" aria-describedby="basic-addon1">
       </div>
+      <br>
       <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
         <button type="submit" class="btn btn-primary">Add</button>
-      
       </div>
-
-
-   
-
     </form>
 </div>
 

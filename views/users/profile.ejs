@@ -1,7 +1,7 @@
+<!-- user profile page which allows them to look at their crypto or edit/delete their account-->
 <h1 style="text-align: center; font-weight: bold;">Welcome to your profile, <%= user.email %>!</h2>
 <br>
 <br>
-<% console.log("USERRRRR", user.id) %>
 <div class = "container text-center">
     <div class=" d-flex row justify-content-center gap-3">
         <div style="display:flex; width: 20vw; height: 30vh; align-items: center; background-color: rgb(39, 46, 184);" class="col-sm4 card p-3 mb-2">
@@ -20,12 +20,13 @@
         <textarea hidden id="userId" name="userId"><%user.id%></textarea>
         <button type="submit" class="btn btn-primary">Edit Account</button>
     </form>
+    <!-- delete account modal -->
     <form method="POST" action="/users/profile/?_method=DELETE">
         <textarea hidden id="userId" name="userId"><%user.id%></textarea>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Account</button>
     </form>
 </div>
-
+<!-- delete account modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

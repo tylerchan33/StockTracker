@@ -13,6 +13,7 @@ router.get("/", (req, res) => {
     res.render("cryptos/search")
 })
 
+// uses the API to search for stock information based on what user inputted
 router.get("/search", async (req, res) => {
     try {
     console.log(req.query)
@@ -35,28 +36,6 @@ router.get("/search", async (req, res) => {
     res.render("cryptos/add.ejs")
 })
 
-// router.post("/add", async (req, res) => {
-//     try {
-//         const crypto = await db.crypto.create({
-//             crypto_symbol: req.body.cryptoSymbol,
-//             crypto_price_bought: req.body.cryptoPriceBought,
-//             crypto_amount_bought: req.body.cryptoBought
-//         })
-//         const user = await db.user.findOne({
-//             where: {
-//                 email: res.locals.user.email
-//             }
-//         })
-//         await user.addCrypto(crypto)
-//         .then((crypto) => {
-//             res.redirect("/users/cryptos")
-//         })
-//     }
-//     catch(err) {
-//         console.log(err)
-//         res.send("server error")
-//     }
-// })
 
 // adds a new crypto to user profile
 router.post("/add", async (req, res) => {
@@ -83,6 +62,7 @@ router.post("/add", async (req, res) => {
      }
  })
 
+ // displays one of the user's crypto to them
 router.get("/:id", async (req, res) => {
     console.log(req.params.id)
     try {
@@ -98,6 +78,7 @@ router.get("/:id", async (req, res) => {
     }
 })
 
+// sends user to a page where they can update information about their crypto
 router.get("/:id/update", async (req, res) => {
     try {
         const oneCrypto = await db.crypto.findOne({
@@ -112,6 +93,7 @@ router.get("/:id/update", async (req, res) => {
     }
 })
 
+//updates the crypto information
 router.put("/:id/update", async (req, res) => {
     try {
         const updateCrypto = await db.crypto.update({
@@ -130,6 +112,7 @@ router.put("/:id/update", async (req, res) => {
     }
 })
 
+// deletes specific crypto from user profile after pressing button
 router.delete("/:id", async (req, res) => {
     try {
         const user = await db.user.findOne({
@@ -151,6 +134,4 @@ router.delete("/:id", async (req, res) => {
         console.log(err)
     }
 })
-
-
 module.exports = router

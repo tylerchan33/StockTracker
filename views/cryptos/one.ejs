@@ -1,10 +1,11 @@
+<!-- page that shows one of the user's stocks and allows them to update or delete the stock -->
 <div class="container text-center">
     <div class="col align self-center">
-        <h2>Name: <%= crypto.crypto_symbol.toUpperCase()  %></h2>
+        <h2><%= crypto.crypto_symbol.toUpperCase()  %></h2>
         <% const commaPrice = crypto.crypto_price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <p>Average Price Bought: <%= `${commaPrice}` %></p>
         <% const commaShares = crypto.crypto_amount_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
-        <p>Amount Bought: <%= commaShares%></p>  
+        <p>Amount Bought: <%= `${commaShares} ${crypto.crypto_symbol.toUpperCase()}` %></p>  
     </div>
 </div>
 
@@ -13,11 +14,12 @@
     <form method="GET" action="/cryptos/<%=crypto.id%>/update">
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+    <!-- confirmation modal to delete stock from page -->
         <form method="POST" action="/cryptos/<%=crypto.id%>/?_method=DELETE">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Remove</button>
         </form>
 </div>
-
+ <!-- confirmation modal to delete stock from page -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

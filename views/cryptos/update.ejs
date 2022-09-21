@@ -1,30 +1,34 @@
+<!-- page for user to update their crypto information -->
 <body style="background-color: rgb(222, 208, 193);">
-<h1 style="text-align: center;">Update Crypto Information:</h1>
 
-<div style="display: flex;
-justify-content: center;">
-    <form method="POST" action="/cryptos/<%=crypto.id%>/update/?_method=PUT">
-        <label for="cryptoSymbol"></label>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Crypto Symbol:</span>
-            <input type="text" class="col-5" id="cryptoSymbol" name ="cryptoSymbol" placeholder="e.g. BTC/EUR" aria-label="cryptoSymbol" aria-describedby="basic-addon1">
-        </div>
-        <label for="cryptoBought"></label>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Amount of Crypto:</span>
-            <input type="text" class="col-5" id="cryptoBought" name ="cryptoBought" placeholder="Enter number" aria-label="cryptoBought" aria-describedby="basic-addon1">
-        </div>
-        <label for="cryptoPriceBought"></label>
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1">Average Price of Crypto Bought:</span>
-          <input type="text" class="col-5" id="cryptoPriceBought" name ="cryptoPriceBought" placeholder="Enter price ($)" aria-label="cryptoPriceBought" aria-describedby="basic-addon1">
-        </div>
-        <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
-            <form method="GET" action="/cryptos/<%=crypto.id%>/update">
-                <button type="submit" class="btn btn-primary">Update</button>
-            </form>
-        </div>
-    </form>
+    <h1 style="text-align: center;">Update Crypto Information:</h1>
 
-</div>
+    <div style="display: flex;
+                justify-content: center;
+                background-color: rgb(190, 41, 41);
+                width: 40vw;
+                margin-left: auto;
+                margin-right: auto;">
+        <form method="POST" action="/cryptos/<%=crypto.id%>/update/?_method=PUT">
+            <br>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Crypto Symbol:</span>
+                <input type="text" class="col-5" id="cryptoSymbol" name ="cryptoSymbol" placeholder="e.g. BTC/EUR" aria-label="cryptoSymbol" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Amount of Crypto:</span>
+                <input type="text" class="col-5" id="cryptoBought" name ="cryptoBought" placeholder="Enter number" aria-label="cryptoBought" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Average Price of Crypto Bought:</span>
+            <input type="text" class="col-5" id="cryptoPriceBought" name ="cryptoPriceBought" placeholder="Enter price ($)" aria-label="cryptoPriceBought" aria-describedby="basic-addon1">
+            </div>
+            <div class="mx-auto btn-group-vertical d-grid" role="group" aria-label="Vertical button group">
+                <form method="GET" action="/cryptos/<%=crypto.id%>/update">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </form>
+    </div>
+
 </body>

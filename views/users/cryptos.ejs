@@ -1,11 +1,12 @@
+<!-- shows users cryptos on one page (up to 8 crypto) -->
 <h1 id="myCrypto" style="font-weight: bold;">My Crypto</h1>
 <p style="text-align: center;">Note: StockTracker currently only supports showing 8 of your crypto. </p>
-<% console.log("MYCRYPTS", myCryptos) %>
-<% console.log("CRYPTYEKJL", crypty) %>
 
+<!-- checks how many crypto the user has  -->
 <% if (crypty.length === 0) { %>
     <h4 style="text-align: center;"> You have no crypto!</h4>
-<% } else if (crypty.length === 1) { %>
+    <!-- had to have a specific length for one because the API accesses the data differently when there is only one  -->
+  <% } else if (crypty.length === 1) { %>
     <% myCryptos.forEach(cryptos => { %>
         <% cryptoAPI.price %>
         <% console.log("CRYPTOAPI HERE:",cryptoAPI) %>
@@ -40,14 +41,12 @@
                 <td><%= `${roundedPriceComma}` %></td>
                 <td><%= `${roundedMarketValueComma}` %></td>
                 <td><%= `${roundedGainsComma}` %></td>
-                
-
               </tr>
             </tbody>
           </table>
         
-<% }) %>
-<%} else if (crypty.length > 1 && crypty.length <= 8 && cryptoAPI.message == undefined ) { %>
+  <% }) %>
+  <%} else if (crypty.length > 1 && crypty.length <= 8 && cryptoAPI.message == undefined ) { %>
      <% myCryptos.forEach(cryptos => { %>
         <% cryptoAPI[cryptos.crypto_symbol].price %>
         <% console.log("CRYPTOAPI HERE:",cryptoAPI) %>
@@ -64,7 +63,6 @@
         <% const commaPrice = cryptos.crypto_price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
         <% const commaShares = cryptos.crypto_amount_bought.toLocaleString() %>
     
-
         <table class="table table-striped" style="background-color: white;">
             <thead>
               <tr>
@@ -84,14 +82,11 @@
                 <td><%= `${roundedPriceComma}` %></td>
                 <td><%= `${roundedMarketValueComma}` %></td>
                 <td><%= `${roundedGainsComma}` %></td>
-                
-
               </tr>
             </tbody>
           </table>
           <% }) %>
-    <% } else {%>
-
+  <% } else {%>
         <p style="text-align: center;">If you are experiencing this page, then you must have more than 8 crypto or the API is currently handling too many requests.  Wait around a minute and refresh the page to view your crypto.</p>
-     <%} %>
+<%} %>
          

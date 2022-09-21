@@ -1,20 +1,21 @@
-<h2 style="text-align: center;">Name: <%= stock.stock_symbol.toUpperCase() %></h2>
+<!-- shows user one of their stocks and allows them to update or remove -->
+<h1 style="text-align: center;"><%= stock.stock_symbol.toUpperCase() %></h1>
 <% const commaPrice = stock.price_bought.toLocaleString("en-US", {style: "currency", currency: "USD", maximumFractionDigits: "2"}) %>
 <p style="text-align: center;">Average Price Bought: <%= `${commaPrice}` %></p>
 <% const commaShares = stock.shares_bought.toLocaleString("en-US", {maximumFractionDigits: "2"}) %>
 <p style="text-align: center;"># of Shares Bought: <%= commaShares %></p>  
 
-
-
-
 <div class="mx-auto btn-group text-center d-flex justify-content-center gap-3" role="group" aria-label="Vertical button group">
     <form method="GET" action="/stocks/<%=stock.id%>/update">
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+    <!-- modal to confirm deletion of stock -->
         <form method="POST" action="/stocks/<%=stock.id%>/?_method=DELETE">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Remove</button>
         </form>
 </div>
+
+ <!-- modal to confirm deletion of stock -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

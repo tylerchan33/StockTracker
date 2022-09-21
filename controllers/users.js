@@ -43,7 +43,6 @@ router.post('/', async (req, res) => {
             // redirect to the homepage
             res.redirect('/users/profile')
         }
-
     } catch(err) {
         console.log(err)
         res.send('server error')
@@ -113,6 +112,7 @@ router.get('/profile', (req, res) => {
     }
 })
 
+// shows users stocks
 router.get('/stocks', async (req, res) => {
     // if the user is not logged ... we need to redirect to the login form
     try {
@@ -120,7 +120,6 @@ router.get('/stocks', async (req, res) => {
             res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
         // otherwise, show them their profile
         } else {
-         console.log("USERINFOOOO:", res.locals.user)
          const user = await db.user.findOne({
             where: {
                 email: res.locals.user.email
@@ -128,40 +127,33 @@ router.get('/stocks', async (req, res) => {
          })
             const myStocks = await user.getStocks()
 
+            // function that returns an array of all of the user's stocks so that I can easily input them into the API
             function localStock() {
                 const stockList = []
                 for (let i = 0; i < myStocks.length; i++){
                     let name = myStocks[i].dataValues.stock_symbol
-                    console.log(name) 
                     stockList.push(name)
                 }
                 return stockList
             }
+
             localStock()
             const stocky = localStock()
-            console.log("STOCKY1", stocky)
-
+            // makes it so that the length of the users stock list does not exceed 8 because the API that I use only allows for 8 API calls a minute
             if (stocky.length > 8) {
                 stocky.length = 8
             }
 
-
-          
-            console.log("STOCKY2", stocky)
-        
             const url =  `https://api.twelvedata.com/price?symbol=${stocky}&apikey=${process.env.API_KEY}&source=docs`
             axios.get(url)
                 .then(response => {
-                    
                     res.render('users/stocks.ejs', {
                         user: res.locals.user,
                         stockAPI: response.data,
                         myStocks,
                         stocky
                     })
-                
                 })
-           
         }
     } catch(err) {
         console.log(err)
@@ -169,6 +161,7 @@ router.get('/stocks', async (req, res) => {
     }
 })
 
+// shows users cryptos
 router.get('/cryptos', async (req, res) => {
     // if the user is not logged ... we need to redirect to the login form
     try {
@@ -176,28 +169,26 @@ router.get('/cryptos', async (req, res) => {
             res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
         // otherwise, show them their profile
         } else {
-         console.log("USERINFOOOO:", res.locals.user)
          const user = await db.user.findOne({
             where: {
                 email: res.locals.user.email
             }
          })
             const myCryptos = await user.getCryptos()
-
+            // returns array of users cryptos
             function localCrypto() {
                 const cryptoList = []
                 for (let i = 0; i < myCryptos.length; i++){
                     let cryptoName = myCryptos[i].dataValues.crypto_symbol
-                    console.log(cryptoName) 
                     cryptoList.push(cryptoName)
                 }
                 return cryptoList
             }
+
             localCrypto()
             const crypty = localCrypto()
-          
-            console.log("CRYPTY", crypty)
 
+            // keeps users crypto length at 8 or less
             if (crypty.length > 8) {
                 crypty.length = 8
             }
@@ -205,14 +196,12 @@ router.get('/cryptos', async (req, res) => {
             const url =  `https://api.twelvedata.com/price?symbol=${crypty}&apikey=${process.env.API_KEY}&source=docs`
             axios.get(url)
                 .then(response => {
-                    
                     res.render('users/cryptos.ejs', {
                         user: res.locals.user,
                         cryptoAPI: response.data,
                         myCryptos,
                         crypty
                     })
-                
                 })
            
         }
@@ -222,7 +211,7 @@ router.get('/cryptos', async (req, res) => {
     }
 })
 
-
+// deletes user profile
 router.delete("/profile", async (req, res) => {
     try {
         if(!res.locals.user) {
@@ -233,7 +222,6 @@ router.delete("/profile", async (req, res) => {
                 email: res.locals.user.email
                 }
             })
-        
         res.redirect("/")
         }
     } catch(err) {
@@ -242,22 +230,21 @@ router.delete("/profile", async (req, res) => {
     }
 })
 
+// sends user to page where they can edit their profile information
 router.get("/profile/edit", async (req, res) => {
     try {
         if(!res.locals.user) {
             res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
-
         } else {
             res.render("users/edit")
             }
+        } catch(err) {
+          console.log(err)
+          res.send("servor error")
         }
-        catch(err) {
-        console.log(err)
-        res.send("servor error")
-        }
-    
 })
 
+//updates user info
 router.put("/profile/edit", async (req, res) => {
     try {
         const user = await db.user.findOne({
@@ -267,11 +254,12 @@ router.put("/profile/edit", async (req, res) => {
         })
         if(!res.locals.user) {
             res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
-
-        }  else if(!bcrypt.compareSync(req.body.password, user.password)) {
+            // makes it so user must confirm their old password in order to change to a new one
+        }  else if (!bcrypt.compareSync(req.body.password, user.password)) {
             console.log('wrong password')
             res.redirect('/users/profile/account/?message=' + noLoginMessage)
         } else {
+            // allows user to update their email and password
             const hashedPassword = bcrypt.hashSync(req.body.newPassword, 12)
             const editUser = await db.user.update({
                 email: req.body.email,
@@ -283,12 +271,10 @@ router.put("/profile/edit", async (req, res) => {
             })
             res.redirect("/users/profile")
         } 
-        }catch(err) {
-            console.log(err)
-            res.send("servor error")
-        }
+    }catch(err) {
+        console.log(err)
+        res.send("servor error")
+    }
 })
-
-
 
 module.exports = router
