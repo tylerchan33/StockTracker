@@ -7,7 +7,20 @@ Link to my site: https://stocktracker-tylerchan33.koyeb.app/
 Tired of having to track your stocks across multiple accounts?  Not satisfied with your current stock tracking app?  Look no further than Stocktracker!  Stocktracker will let you add your stocks to our page and track them as you become the next Warren Buffett or plunge into despair.  You'll be able to add the price you bought the stock at and see the current stock price using Twelve Data API and see your losses and gains!  
 
 ***
+### MVP/Stretch Goals
 
+#### MVP
+
+- user is able to view, add, delete, and update stocks on profile
+- user can add what price they bought the stock at and show their net gain/loss
+- user can search for a stock
+
+#### Stretch Goals
+
+- add more information for each stock
+- add graph/trends
+- show real time price
+***
 ### User Stories
 
 - as a User, I want to be able to see how much money I've gained or lost for each stock
@@ -77,19 +90,6 @@ Add Stock Page:
 
 ![ERD](./images/ERD.png)
 
-### MVP/Stretch Goals
-
-#### MVP
-
-- user is able to view, add, delete, and update stocks on profile
-- user can add what price they bought the stock at and show their net gain/loss
-- user can search for a stock
-
-#### Stretch Goals
-
-- add more information for each stock
-- make the styling look great
-- add graph/trends
 
 
 
