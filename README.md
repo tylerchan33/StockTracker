@@ -73,7 +73,7 @@ Add Stock Page:
 
 ### ERD
 
-![ERD](images/ERDs.png)
+![ERD](./images/ERD.png)
 
 ### MVP/Stretch Goals
 
